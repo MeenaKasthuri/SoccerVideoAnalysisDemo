@@ -15,6 +15,8 @@ from database.sql_server import SQLServerManager
 from analytics.heatmaps import  HeatmapAnalyzer
 from homography.homography import HomographyGenerator
 from exporters.json_exporter import export_tracking_json
+from exporters.csv_exporter import export_tracking_csv
+from exporters.event_exporter import export_events_json
 from visualization import pitch_visualizer
 from visualization.pitch_visualizer import PitchVisualizer
 from analytics.positioning import Position_Generator
@@ -22,9 +24,11 @@ from analytics.possession_analyzer import PossessionAnalyzer
 from analytics.touch_analyzer import TouchAnalyzer
 from analytics.distance_analyzer import DistanceAnalyzer
 from analytics.history_builder import HistoryBuilder
+from analytics.event_model import EventModel
 from analytics.team_zone_analyzer import TeamZoneAnalyzer
 from analytics.player_statistics_builder import PlayerStatisticsBuilder
 from visualization.tactical_visualizer import TacticalVisualizer
+import time
 
 # Main
 def collect_player_colors(
@@ -65,34 +69,32 @@ def main(
         output_folder = "output_videos",
         options = None
 ):
+    total_start = time.perf_counter()
     if options is None:
         options = {
-
             "pitch": True,
-
             "heatmap": True,
-
             "zones": True,
-
             "hulls": True,
-
             "overlay_heatmap": True,
-
             "json": True,
-
+            "csv": True,
             "database": True
-
         }
     ###-----RESULTS DICT-----###
     results = {}
     ###-----RESULTS DICT END-----###
     print("STEP 1 - entering main")
-    # Read video
 
+    # PERFORMANCE TIMER - VIDEO LOADING
+    video_load_start = time.perf_counter()
 
     video_frames, fps = read_video(video_path)
-    print("FPS:", fps)
 
+    video_load_time = time.perf_counter() - video_load_start
+
+    print("FPS:", fps)
+    print(f"[TIME] Video loading: {video_load_time:.2f} seconds")
     print("STEP 2 - video loaded")
 
     # Create unique stub file name per video
@@ -104,16 +106,24 @@ def main(
 
 
     #Initialize the tracker
+        # Initialize the tracker
     tracker = Tracker('models/best (2).pt')
     print("STEP 3 - tracker initialized")
 
-    tracks = tracker.get_object_tracker(video_frames,
-                                        read_from_stub=True,
-                                        stub_path= stub_path)
+    # PERFORMANCE TIMER - DETECTION AND TRACKING
+    tracking_start = time.perf_counter()
 
+    tracks = tracker.get_object_tracker(
+        video_frames,
+        read_from_stub=False,
+        stub_path=stub_path
+    )
+
+    tracking_time = time.perf_counter() - tracking_start
+
+    print(f"[TIME] Detection + Tracking: {tracking_time:.2f} seconds")
     print("Players in frame 0:", len(tracks["players"][0]))
     print("STEP 4 - tracking complete")
-
     # Match_analysis dictionary
     match_analysis = {}
 
@@ -160,6 +170,11 @@ def main(
 
 
     if options["database"]:
+
+        # PERFORMANCE TIMER - INITIAL DATABASE OPERATIONS
+        database_initial_start = time.perf_counter()
+
+        #Implement SQL Lite database:
         #Implement SQL Lite database:
         # Create database (SQL Lite)
         sqlite_db = SQLiteManager()
@@ -232,9 +247,13 @@ def main(
         sqlite_db.save()
         sqlserver_db.save()
 
+        database_initial_time = time.perf_counter() - database_initial_start
+        print(f"[TIME] Initial database operations: {database_initial_time:.2f} seconds")
 
 
 
+        # PERFORMANCE TIMER - ANALYTICS
+    analytics_start = time.perf_counter()
 
     player_histories = build_player_histories(
         tracks
@@ -322,6 +341,8 @@ def main(
 
     if len(player_colors) < 5:
         print("Not enough data for team clustering")
+        print(f"[TIME] Team assignment + analytics: {time.perf_counter() - analytics_start:.2f} seconds")
+        print(f"[TIME] TOTAL PROCESSING TIME: {time.perf_counter() - total_start:.2f} seconds")
         return
 
     team_assigner.assign_team_color_from_colors(player_colors)
@@ -386,6 +407,27 @@ def main(
                 team_ball_control.append(0)
     team_ball_control = np.array(team_ball_control)
 
+    # Event data model
+
+    event_model = EventModel(fps)
+
+    event_data = event_model.build_events(
+        tracks
+    )
+
+    match_analysis["events"] = event_data
+
+    export_events_json(
+        event_data,
+        "JSON_data/events.json"
+    )
+
+    print("-----EVENT DATA MODEL-----")
+    print("Total events:", len(event_data))
+
+    for event in event_data[:5]:
+        print(event)
+
     #History Builder
     history_builder = HistoryBuilder()
 
@@ -437,6 +479,21 @@ def main(
         results["JSON"] = \
             "JSON_data/tracking_output.json"
 
+    # CSV implementation
+
+    if options["csv"]:
+
+        export_tracking_csv(
+            tracks,
+            "CSV_data/tracking_output.csv"
+        )
+
+        results["CSV"] = \
+            "CSV_data/tracking_output.csv"
+
+    analytics_time = time.perf_counter() - analytics_start
+    print(f"[TIME] Team assignment + analytics: {analytics_time:.2f} seconds")
+
 
     # #Save cropped image of a player
     # for track_id, player in tracks['players'][0].items():
@@ -457,7 +514,10 @@ def main(
     # print("team ball control:", len(team_ball_control))
     #Draw output
     ##Draw Object Tracks
+    annotation_start = time.perf_counter()
     output_video_frames = tracker.draw_annotations(video_frames, tracks, team_ball_control)
+    annotation_time = time.perf_counter() - annotation_start
+    print(f"[TIME] Annotation drawing: {annotation_time:.2f} seconds")
 
     print("Input frames:", len(video_frames))
     print("Output frames:", len(output_video_frames))
@@ -490,6 +550,8 @@ def main(
 
     if options["pitch"]:
 
+        pitch_start = time.perf_counter()
+
         pitch_frames = tactical_visualizer.build_pitch_video(
             tracks,
             video_frames
@@ -505,6 +567,8 @@ def main(
         )
         results["Pitch View"] = \
             "pitch_view.mp4"
+
+        print(f"[TIME] Pitch video: {time.perf_counter() - pitch_start:.2f} seconds")
 
     #Output for average positions:
     average_pitch = pitch_visualizer.create_pitch()
@@ -551,6 +615,7 @@ def main(
 
     ###-----ZONE VIDEO DRAWING LOOP-----###
     if options["zones"]:
+        zone_start = time.perf_counter()
         zone_frames = tactical_visualizer.build_zone_video(
 
             tracks,
@@ -569,6 +634,7 @@ def main(
         )
         results["Zone View"] = \
             "team_zones_video.mp4"
+        print(f"[TIME] Zone video: {time.perf_counter() - zone_start:.2f} seconds")
     ####------END OF ZONE VIDEO BLOCK------####
 
     ####------ZONE IMAGE DRAWING------####
@@ -593,6 +659,7 @@ def main(
 
     #####------ZONE HULL OVERLAY VIDEO BLOCK------####
     if options["hulls"]:
+        hull_start = time.perf_counter()
         overlay_frames = tactical_visualizer.build_overlay_hull_video(
             tracks,
             video_frames
@@ -608,10 +675,13 @@ def main(
         )
         results["Hull Overlay"] = \
             "overlay_hulls.mp4"
+        print(f"[TIME] Hull overlay: {time.perf_counter() - hull_start:.2f} seconds")
     #####------END OF ZONE HULL OVERLAY VIDEO BLOCK------####
 
     #####------HEATMAP VIDEO BLOCK-----#####
     if options["heatmap"]:
+
+        heatmap_start = time.perf_counter()
 
         heatmap_frames = tactical_visualizer.build_heatmap_video(
             tracks,
@@ -627,6 +697,7 @@ def main(
         )
         results["Team Heatmaps"] = \
             "team_heatmap_video.mp4"
+        print(f"[TIME] Heatmap video: {time.perf_counter() - heatmap_start:.2f} seconds")
 
     ########-----HEATMAPS IMAGE BLOCK-----#########
     heatmap_analyzer = HeatmapAnalyzer()
@@ -654,6 +725,8 @@ def main(
     ######-----HEATMAP OVERLAY VIDEO BLOCK-----######
     if options["overlay_heatmap"]:
 
+        overlay_heatmap_start = time.perf_counter()
+
         overlay_heatmap_frames = tactical_visualizer.build_overlay_heatmap_video(
             tracks,
             video_frames
@@ -669,9 +742,11 @@ def main(
         )
         results["Heatmap Overlay"] = \
             "overlay_heatmaps.mp4"
+        print(f"[TIME] Heatmap overlay: {time.perf_counter() - overlay_heatmap_start:.2f} seconds")
     ######-----HEATMAP OVERLAY VIDEO BLOCK END-----######
 
     #STATISTICS BUILDER CALL
+    final_database_start = time.perf_counter()
     statistics_builder = PlayerStatisticsBuilder()
 
     match_analysis["player_statistics"] = \
@@ -700,6 +775,8 @@ def main(
         results["SQLite"] = "sports_db/soccer_tracking.db"
         results["SQL Server"] = "Updated"
 
+    print(f"[TIME] Final database/statistics: {time.perf_counter() - final_database_start:.2f} seconds")
+
 
 
 
@@ -710,6 +787,7 @@ def main(
     # )
 
     #Save Video
+    final_video_start = time.perf_counter()
     save_video(
         output_video_frames,
         os.path.join(
@@ -718,6 +796,8 @@ def main(
         ),
         fps
     )
+    print(f"[TIME] Final annotated video: {time.perf_counter() - final_video_start:.2f} seconds")
+    print(f"[TIME] TOTAL PROCESSING TIME: {time.perf_counter() - total_start:.2f} seconds")
     print(results)
     return results
 

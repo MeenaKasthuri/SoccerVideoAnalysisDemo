@@ -11,6 +11,7 @@ import sys
 sys.path.append('../')
 import inspect
 import traceback
+import time
 from itertools import combinations
 from utils import get_center_of_bbox, get_bbox_width
 from camera_motion.camera_motion import CameraMotionEstimator
@@ -87,17 +88,32 @@ class Tracker:
 
         return ball_positions
 
-    def detect_frames(self, frames):
-        batch_size=16 #Caps the batch size so it doesn't overload the system
-        detections = [] #initialize detections
+    def detect_frames(self, frames, use_batch=False):
+        """
+        Run YOLO detection on video frames.
 
-        for i in range(0, len(frames), batch_size):
-            print(f"Batch starting at frame {i}")
-            batch = frames[i:i + batch_size]
+        Parameters
+        ----------
+        frames : list
+            Video frames to process.
 
-            batch_detections = []
+        use_batch : bool
+            False = standard single-frame inference.
+            True = experimental true batch inference.
 
-            for frame in batch:
+        Returns
+        -------
+        list
+            YOLO detection results in original frame order.
+        """
+
+        # -------------------------------------------------
+        # Standard single-frame inference
+        # -------------------------------------------------
+        if not use_batch:
+            detections = []
+
+            for frame_num, frame in enumerate(frames):
                 blur = self.frame_blur_score(frame)
 
                 conf = 0.22 if blur < 200 else 0.25
@@ -110,16 +126,68 @@ class Tracker:
                     verbose=False
                 )
 
-                # results = self.model.track(
-                #     frame,
-                #     persist=True,
-                #     tracker="bytetrack.yaml"
-                # )
+                detections.append(result[0])
 
-                batch_detections.append(result[0])
+            return detections
 
+        # -------------------------------------------------
+        # Experimental true batch inference
+        # -------------------------------------------------
+        batch_size = 16
+        detections = []
 
-            detections += batch_detections
+        for i in range(0, len(frames), batch_size):
+            print(f"Batch starting at frame {i}")
+
+            batch = frames[i:i + batch_size]
+
+            # Preserve original frame order
+            batch_detections = [None] * len(batch)
+
+            # Maintain existing blur-based confidence logic
+            low_conf_frames = []
+            low_conf_indices = []
+
+            high_conf_frames = []
+            high_conf_indices = []
+
+            for index, frame in enumerate(batch):
+                blur = self.frame_blur_score(frame)
+
+                if blur < 200:
+                    low_conf_frames.append(frame)
+                    low_conf_indices.append(index)
+                else:
+                    high_conf_frames.append(frame)
+                    high_conf_indices.append(index)
+
+            # Batch inference using confidence 0.22
+            if low_conf_frames:
+                results = self.model.predict(
+                    low_conf_frames,
+                    conf=0.22,
+                    iou=0.35,
+                    imgsz=1280,
+                    verbose=False
+                )
+
+                for index, result in zip(low_conf_indices, results):
+                    batch_detections[index] = result
+
+            # Batch inference using confidence 0.25
+            if high_conf_frames:
+                results = self.model.predict(
+                    high_conf_frames,
+                    conf=0.25,
+                    iou=0.35,
+                    imgsz=1280,
+                    verbose=False
+                )
+
+                for index, result in zip(high_conf_indices, results):
+                    batch_detections[index] = result
+
+            detections.extend(batch_detections)
 
         return detections
 
@@ -141,7 +209,13 @@ class Tracker:
         self.pretrack_history[key] = smoothed
         return smoothed
 
-    def get_object_tracker(self, frames, read_from_stub=False, stub_path=None):
+    def get_object_tracker(
+        self,
+        frames,
+        read_from_stub=False,
+        stub_path=None,
+        use_batch=False
+    ):
         print("TRACKER INSTANCE IN METHOD:", id(self))
         print(__file__)
         print("RUNNING TRACKER VERSION JUNE-9-TEST")
@@ -159,7 +233,17 @@ class Tracker:
 
         print(">>> STARTING DETECTION")
 
-        detections = self.detect_frames(frames)
+        detection_start = time.perf_counter()
+
+        detections = self.detect_frames(
+            frames,
+            use_batch=use_batch
+        )
+
+        detection_time = time.perf_counter() - detection_start
+        print(f"[DETAIL] YOLO detection only: {detection_time:.2f} seconds")
+
+        tracking_start = time.perf_counter()
 
         print(">>> DETECTION COMPLETE")
         print("NUM DETECTIONS:", len(detections))
@@ -457,6 +541,9 @@ class Tracker:
 
 
         # print("EXPORT LENGTH:", len(tracking_export))
+        tracking_time = time.perf_counter() - tracking_start
+        print(f"[DETAIL] Tracking/post-processing only: {tracking_time:.2f} seconds")
+
         if stub_path is not None:
             with open(stub_path, 'wb') as f:
                 pickle.dump(tracks, f)
@@ -728,15 +815,40 @@ class Tracker:
 
 
     def draw_annotations(self, video_frames, tracks, team_ball_control):
-        output_video_frames= []
+        output_video_frames = []
+
+        camera_motion_total = 0.0
+        player_drawing_total = 0.0
+        referee_drawing_total = 0.0
+        ball_drawing_total = 0.0
+        team_control_total = 0.0
+
         for frame_num, frame in enumerate(video_frames):
             frame = frame.copy()
-            offset_x, offset_y = self.motion_estimator.update_camera(frame)
-            print(
-                f"Frame {frame_num}: "
-                f"dx={offset_x:.1f}, "
-                f"dy={offset_y:.1f}"
-            )
+
+            # Optimize camera-motion estimation by recalculating every 5 frames
+            # and reusing the previous offset between calculations.
+            if frame_num % 5 == 0:
+                camera_start = time.perf_counter()
+
+                offset_x, offset_y = self.motion_estimator.update_camera(frame)
+
+                camera_motion_total += time.perf_counter() - camera_start
+
+                self.last_camera_offset = (offset_x, offset_y)
+
+            else:
+                offset_x, offset_y = getattr(
+                    self,
+                    "last_camera_offset",
+                    (0.0, 0.0)
+                )
+
+            # print(
+            #     f"Frame {frame_num}: "
+            #     f"dx={offset_x:.1f}, "
+            #     f"dy={offset_y:.1f}"
+            # )
 
             player_dict = tracks["players"][frame_num]
             ball_dict = tracks["ball"][frame_num]
@@ -871,6 +983,8 @@ class Tracker:
                 if track_id not in active_ids:
                     self.track_history[track_id] = \
                         self.track_history[track_id][-20:]
+
+        print(f"[DETAIL] Camera motion estimation: {camera_motion_total:.2f} seconds")
 
         return output_video_frames
 
