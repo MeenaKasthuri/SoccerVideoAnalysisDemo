@@ -7,10 +7,9 @@ class SQLServerManager:
 
         self.conn = pyodbc.connect(
             "DRIVER={ODBC Driver 17 for SQL Server};"
-            "SERVER=ANDYS_DELL;"
+            "SERVER=localhost;"
             "DATABASE=SoccerAnalytics;"
             "Trusted_Connection=yes;"
-
         )
 
 

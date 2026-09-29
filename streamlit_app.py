@@ -29,10 +29,13 @@ st.set_page_config(
 st.title(
     "Soccer Tactical Analysis Platform"
 )
-st.image(
-    "images/Streamlit_Image.webp",
-    use_container_width=True
-)
+image_path = "images/Streamlit_Image.webp"
+
+if os.path.exists(image_path):
+    st.image(
+        image_path,
+        use_container_width=True
+    )
 
 st.write(
     """
