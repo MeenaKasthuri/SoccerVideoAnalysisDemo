@@ -387,12 +387,29 @@ def main(
     # Assign ball acquisition
     player_assigner = PlayerBallAssigner()
     team_ball_control = []
+    tracks["divided_ball"] = []
     for frame_num, player_track in enumerate(tracks['players']):
         ball_bbox = tracks['ball'][frame_num].get(1, {}).get('bbox', None)
 
         if ball_bbox is None:
+            tracks["divided_ball"].append(None)
             team_ball_control.append(team_ball_control[-1] if team_ball_control else 0)
             continue
+
+        divided_ball = player_assigner.detect_divided_ball(player_track, ball_bbox)
+        if divided_ball is None:
+            tracks["divided_ball"].append(None)
+        else:
+            ball = tracks['ball'][frame_num][1]
+            tracks["divided_ball"].append({
+                "player_ids": divided_ball["player_ids"],
+                "distances": divided_ball["distances"],
+                "teams": [player_track[player_id].get("team")
+                          for player_id in divided_ball["player_ids"]],
+                "pitch_x": ball.get("pitch_x"),
+                "pitch_y": ball.get("pitch_y")
+            })
+
         assigned_player = player_assigner.assign_ball_to_player(player_track, ball_bbox)
 
         if assigned_player != -1:

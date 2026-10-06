@@ -32,7 +32,7 @@ This document is based on the inherited project backlog and is maintained as a l
 | EPIC-3.5 | Medium | Done | Heatmaps |
 | EPIC-3.6 | Medium | Done | Team possession |
 | EPIC-3.7 | Medium | Done | Individual possession |
-| EPIC-3.8 | Medium | Planned | Divided-ball detection |
+| EPIC-3.8 | Medium | Done | Divided-ball detection |
 | EPIC-3.9 | Medium | Planned | Temporal comparison |
 
 ## Tactical Visualization
@@ -104,6 +104,11 @@ Implemented reusable frame-level CSV export for player, referee, and ball tracki
 
 ### EPIC-3.3 — Event Data Model
 Implemented structured touch and possession-change events with unique IDs, frame numbers, timestamps, player/team information, pitch coordinates, and JSON export.
+
+### EPIC-3.8 — Divided-Ball Detection
+Implemented a rule-based first version that identifies frames with at least two players within the existing 70-pixel ball-distance threshold. The nearest player remains the possession owner for backward compatibility, while contested frames are recorded with all nearby player IDs, teams, distances, frame metadata, and ball pitch coordinates and exported as `divided_ball` events.
+
+Synthetic validation confirms that two nearby players are detected, a single nearby player is not classified as contested, and nearest-player assignment is unchanged. The cached 100-frame flow produced 3 `divided_ball` events at frames 0, 1, and 21 out of 12 total events. Generated annotated evidence was visually inspected at frame 0 and confirmed two players near the ball. The 70-pixel threshold remains a rule-based approximation and should be tuned or replaced with a calibrated pitch-distance rule for broader match conditions.
 
 ## Current Recommendation
 

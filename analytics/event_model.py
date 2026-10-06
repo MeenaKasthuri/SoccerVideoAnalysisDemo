@@ -10,8 +10,36 @@ class EventModel:
 
         previous_owner = None
         event_counter = 1
+        divided_ball_frames = tracks.get("divided_ball", [])
 
         for frame_num, frame_players in enumerate(tracks["players"]):
+
+            divided_ball = (
+                divided_ball_frames[frame_num]
+                if frame_num < len(divided_ball_frames)
+                else None
+            )
+
+            if divided_ball is not None:
+                player_ids = divided_ball["player_ids"]
+                first_player = frame_players.get(player_ids[0], {})
+                events.append({
+                    "event_id": f"EVT-{event_counter:06d}",
+                    "event_type": "divided_ball",
+                    "frame": frame_num,
+                    "timestamp": round(frame_num / self.fps, 3),
+                    "player_id": player_ids[0],
+                    "related_player_id": player_ids[1],
+                    "involved_player_ids": player_ids,
+                    "team_id": first_player.get("team"),
+                    "team_ids": divided_ball.get("teams", []),
+                    "pitch_x": divided_ball.get("pitch_x"),
+                    "pitch_y": divided_ball.get("pitch_y"),
+                    "details": {
+                        "distances": divided_ball.get("distances", [])
+                    }
+                })
+                event_counter += 1
 
             current_owner = None
             current_player = None

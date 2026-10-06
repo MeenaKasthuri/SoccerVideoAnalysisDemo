@@ -6,11 +6,9 @@ class PlayerBallAssigner():
     def __init__(self):
         self.max_player_ball_distance = 70
 
-    def assign_ball_to_player(self, players, ball_bbox):
+    def get_nearby_players(self, players, ball_bbox):
         ball_position = get_center_of_bbox(ball_bbox)
-
-        minimum_distance = 99999
-        assigned_player = -1
+        nearby_players = []
 
         for player_id, player in players.items():
             player_bbox = player['bbox']
@@ -20,8 +18,24 @@ class PlayerBallAssigner():
             distance = min(distance_left, distance_right)
 
             if distance < self.max_player_ball_distance:
-                if distance < minimum_distance:
-                    minimum_distance = distance
-                    assigned_player = player_id
+                nearby_players.append({
+                    "player_id": player_id,
+                    "distance": distance
+                })
 
-        return assigned_player
+        return sorted(nearby_players, key=lambda candidate: candidate["distance"])
+
+    def detect_divided_ball(self, players, ball_bbox):
+        nearby_players = self.get_nearby_players(players, ball_bbox)
+
+        if len(nearby_players) < 2:
+            return None
+
+        return {
+            "player_ids": [candidate["player_id"] for candidate in nearby_players],
+            "distances": [candidate["distance"] for candidate in nearby_players]
+        }
+
+    def assign_ball_to_player(self, players, ball_bbox):
+        nearby_players = self.get_nearby_players(players, ball_bbox)
+        return nearby_players[0]["player_id"] if nearby_players else -1
