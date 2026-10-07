@@ -1,0 +1,2102 @@
+[
+  {
+    "frame": 0,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 95.61,
+        "depth": 38.91,
+        "compactness": 26.83,
+        "centroid_x": 58.26,
+        "centroid_y": 43.34
+      },
+      "2": {
+        "player_count": 10,
+        "width": 86.67,
+        "depth": 56.63,
+        "compactness": 33.5,
+        "centroid_x": 42.96,
+        "centroid_y": 41.94
+      }
+    }
+  },
+  {
+    "frame": 1,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 95.56,
+        "depth": 38.92,
+        "compactness": 26.82,
+        "centroid_x": 58.26,
+        "centroid_y": 43.35
+      },
+      "2": {
+        "player_count": 10,
+        "width": 86.69,
+        "depth": 56.63,
+        "compactness": 33.49,
+        "centroid_x": 42.96,
+        "centroid_y": 41.91
+      }
+    }
+  },
+  {
+    "frame": 2,
+    "teams": {
+      "1": {
+        "player_count": 9,
+        "width": 95.78,
+        "depth": 37.69,
+        "compactness": 27.26,
+        "centroid_x": 57.32,
+        "centroid_y": 41.47
+      },
+      "2": {
+        "player_count": 10,
+        "width": 86.54,
+        "depth": 56.83,
+        "compactness": 33.43,
+        "centroid_x": 43.07,
+        "centroid_y": 41.98
+      }
+    }
+  },
+  {
+    "frame": 3,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 95.84,
+        "depth": 38.84,
+        "compactness": 26.83,
+        "centroid_x": 58.6,
+        "centroid_y": 43.47
+      },
+      "2": {
+        "player_count": 9,
+        "width": 81.57,
+        "depth": 51.21,
+        "compactness": 31.43,
+        "centroid_x": 38.87,
+        "centroid_y": 39.1
+      }
+    }
+  },
+  {
+    "frame": 4,
+    "teams": {
+      "1": {
+        "player_count": 9,
+        "width": 95.9,
+        "depth": 37.63,
+        "compactness": 27.23,
+        "centroid_x": 57.64,
+        "centroid_y": 41.59
+      },
+      "2": {
+        "player_count": 10,
+        "width": 85.76,
+        "depth": 56.75,
+        "compactness": 33.44,
+        "centroid_x": 43.21,
+        "centroid_y": 42.07
+      }
+    }
+  },
+  {
+    "frame": 5,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 95.88,
+        "depth": 38.93,
+        "compactness": 26.82,
+        "centroid_x": 58.96,
+        "centroid_y": 43.55
+      },
+      "2": {
+        "player_count": 10,
+        "width": 85.16,
+        "depth": 56.82,
+        "compactness": 33.57,
+        "centroid_x": 43.4,
+        "centroid_y": 42.13
+      }
+    }
+  },
+  {
+    "frame": 6,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 84.25,
+        "depth": 56.94,
+        "compactness": 33.66,
+        "centroid_x": 43.57,
+        "centroid_y": 42.28
+      },
+      "1": {
+        "player_count": 9,
+        "width": 95.76,
+        "depth": 37.61,
+        "compactness": 27.26,
+        "centroid_x": 58.09,
+        "centroid_y": 41.68
+      }
+    }
+  },
+  {
+    "frame": 7,
+    "teams": {
+      "1": {
+        "player_count": 9,
+        "width": 95.85,
+        "depth": 37.54,
+        "compactness": 27.29,
+        "centroid_x": 58.3,
+        "centroid_y": 41.74
+      },
+      "2": {
+        "player_count": 10,
+        "width": 83.78,
+        "depth": 57.19,
+        "compactness": 33.56,
+        "centroid_x": 43.59,
+        "centroid_y": 42.28
+      }
+    }
+  },
+  {
+    "frame": 8,
+    "teams": {
+      "1": {
+        "player_count": 9,
+        "width": 96.0,
+        "depth": 37.52,
+        "compactness": 27.33,
+        "centroid_x": 58.46,
+        "centroid_y": 41.79
+      },
+      "2": {
+        "player_count": 10,
+        "width": 82.99,
+        "depth": 57.52,
+        "compactness": 33.53,
+        "centroid_x": 43.63,
+        "centroid_y": 42.32
+      }
+    }
+  },
+  {
+    "frame": 9,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 82.42,
+        "depth": 57.58,
+        "compactness": 33.61,
+        "centroid_x": 43.72,
+        "centroid_y": 42.54
+      },
+      "1": {
+        "player_count": 9,
+        "width": 96.18,
+        "depth": 37.53,
+        "compactness": 27.31,
+        "centroid_x": 58.68,
+        "centroid_y": 41.85
+      }
+    }
+  },
+  {
+    "frame": 10,
+    "teams": {
+      "1": {
+        "player_count": 9,
+        "width": 96.31,
+        "depth": 37.64,
+        "compactness": 27.28,
+        "centroid_x": 58.96,
+        "centroid_y": 41.89
+      },
+      "2": {
+        "player_count": 10,
+        "width": 82.29,
+        "depth": 57.68,
+        "compactness": 33.57,
+        "centroid_x": 43.75,
+        "centroid_y": 42.54
+      }
+    }
+  },
+  {
+    "frame": 11,
+    "teams": {
+      "1": {
+        "player_count": 9,
+        "width": 96.34,
+        "depth": 37.61,
+        "compactness": 27.29,
+        "centroid_x": 59.14,
+        "centroid_y": 42.0
+      },
+      "2": {
+        "player_count": 10,
+        "width": 82.38,
+        "depth": 57.68,
+        "compactness": 33.65,
+        "centroid_x": 43.96,
+        "centroid_y": 42.56
+      }
+    }
+  },
+  {
+    "frame": 12,
+    "teams": {
+      "1": {
+        "player_count": 9,
+        "width": 96.27,
+        "depth": 37.74,
+        "compactness": 27.32,
+        "centroid_x": 59.3,
+        "centroid_y": 42.1
+      },
+      "2": {
+        "player_count": 10,
+        "width": 82.42,
+        "depth": 57.62,
+        "compactness": 33.64,
+        "centroid_x": 44.02,
+        "centroid_y": 42.61
+      }
+    }
+  },
+  {
+    "frame": 13,
+    "teams": {
+      "1": {
+        "player_count": 9,
+        "width": 96.1,
+        "depth": 38.14,
+        "compactness": 27.39,
+        "centroid_x": 59.54,
+        "centroid_y": 42.23
+      },
+      "2": {
+        "player_count": 9,
+        "width": 82.46,
+        "depth": 51.89,
+        "compactness": 32.23,
+        "centroid_x": 40.47,
+        "centroid_y": 39.7
+      }
+    }
+  },
+  {
+    "frame": 14,
+    "teams": {
+      "1": {
+        "player_count": 9,
+        "width": 96.05,
+        "depth": 38.32,
+        "compactness": 27.43,
+        "centroid_x": 59.75,
+        "centroid_y": 42.32
+      },
+      "2": {
+        "player_count": 10,
+        "width": 82.53,
+        "depth": 57.49,
+        "compactness": 33.61,
+        "centroid_x": 44.15,
+        "centroid_y": 42.56
+      }
+    }
+  },
+  {
+    "frame": 15,
+    "teams": {
+      "2": {
+        "player_count": 9,
+        "width": 82.62,
+        "depth": 51.78,
+        "compactness": 32.31,
+        "centroid_x": 40.76,
+        "centroid_y": 39.69
+      },
+      "1": {
+        "player_count": 9,
+        "width": 95.93,
+        "depth": 38.31,
+        "compactness": 27.43,
+        "centroid_x": 59.9,
+        "centroid_y": 42.37
+      }
+    }
+  },
+  {
+    "frame": 16,
+    "teams": {
+      "1": {
+        "player_count": 9,
+        "width": 95.99,
+        "depth": 38.24,
+        "compactness": 27.46,
+        "centroid_x": 60.08,
+        "centroid_y": 42.44
+      },
+      "2": {
+        "player_count": 9,
+        "width": 82.89,
+        "depth": 51.86,
+        "compactness": 32.44,
+        "centroid_x": 40.91,
+        "centroid_y": 39.8
+      }
+    }
+  },
+  {
+    "frame": 17,
+    "teams": {
+      "1": {
+        "player_count": 9,
+        "width": 95.8,
+        "depth": 38.2,
+        "compactness": 27.52,
+        "centroid_x": 60.24,
+        "centroid_y": 42.51
+      },
+      "2": {
+        "player_count": 9,
+        "width": 82.93,
+        "depth": 51.72,
+        "compactness": 32.48,
+        "centroid_x": 41.04,
+        "centroid_y": 39.85
+      }
+    }
+  },
+  {
+    "frame": 18,
+    "teams": {
+      "1": {
+        "player_count": 9,
+        "width": 95.58,
+        "depth": 38.13,
+        "compactness": 27.51,
+        "centroid_x": 60.41,
+        "centroid_y": 42.58
+      },
+      "2": {
+        "player_count": 10,
+        "width": 83.01,
+        "depth": 57.61,
+        "compactness": 33.52,
+        "centroid_x": 44.4,
+        "centroid_y": 42.65
+      }
+    }
+  },
+  {
+    "frame": 19,
+    "teams": {
+      "1": {
+        "player_count": 9,
+        "width": 95.44,
+        "depth": 38.03,
+        "compactness": 27.49,
+        "centroid_x": 60.61,
+        "centroid_y": 42.64
+      },
+      "2": {
+        "player_count": 9,
+        "width": 83.05,
+        "depth": 57.71,
+        "compactness": 32.97,
+        "centroid_x": 41.1,
+        "centroid_y": 40.73
+      }
+    }
+  },
+  {
+    "frame": 20,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 83.09,
+        "depth": 57.67,
+        "compactness": 33.53,
+        "centroid_x": 44.48,
+        "centroid_y": 42.74
+      },
+      "1": {
+        "player_count": 10,
+        "width": 95.33,
+        "depth": 42.01,
+        "compactness": 27.34,
+        "centroid_x": 62.14,
+        "centroid_y": 44.9
+      }
+    }
+  },
+  {
+    "frame": 21,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 95.2,
+        "depth": 42.34,
+        "compactness": 27.32,
+        "centroid_x": 62.31,
+        "centroid_y": 44.98
+      },
+      "2": {
+        "player_count": 10,
+        "width": 83.25,
+        "depth": 57.68,
+        "compactness": 33.51,
+        "centroid_x": 44.58,
+        "centroid_y": 42.64
+      }
+    }
+  },
+  {
+    "frame": 22,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 95.03,
+        "depth": 42.65,
+        "compactness": 27.28,
+        "centroid_x": 62.49,
+        "centroid_y": 45.09
+      },
+      "2": {
+        "player_count": 10,
+        "width": 83.34,
+        "depth": 57.43,
+        "compactness": 33.47,
+        "centroid_x": 44.63,
+        "centroid_y": 42.66
+      }
+    }
+  },
+  {
+    "frame": 23,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 83.46,
+        "depth": 57.45,
+        "compactness": 33.44,
+        "centroid_x": 44.67,
+        "centroid_y": 42.7
+      },
+      "1": {
+        "player_count": 10,
+        "width": 94.88,
+        "depth": 42.61,
+        "compactness": 27.22,
+        "centroid_x": 62.72,
+        "centroid_y": 45.12
+      }
+    }
+  },
+  {
+    "frame": 24,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 83.41,
+        "depth": 57.45,
+        "compactness": 33.46,
+        "centroid_x": 44.62,
+        "centroid_y": 43.0
+      },
+      "1": {
+        "player_count": 10,
+        "width": 94.73,
+        "depth": 42.5,
+        "compactness": 27.19,
+        "centroid_x": 62.99,
+        "centroid_y": 45.15
+      }
+    }
+  },
+  {
+    "frame": 25,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 83.45,
+        "depth": 57.72,
+        "compactness": 33.4,
+        "centroid_x": 44.53,
+        "centroid_y": 43.02
+      },
+      "1": {
+        "player_count": 10,
+        "width": 94.52,
+        "depth": 42.65,
+        "compactness": 27.23,
+        "centroid_x": 63.23,
+        "centroid_y": 45.2
+      }
+    }
+  },
+  {
+    "frame": 26,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 94.31,
+        "depth": 42.79,
+        "compactness": 27.23,
+        "centroid_x": 63.48,
+        "centroid_y": 45.25
+      },
+      "2": {
+        "player_count": 11,
+        "width": 83.48,
+        "depth": 57.7,
+        "compactness": 33.35,
+        "centroid_x": 47.27,
+        "centroid_y": 44.72
+      }
+    }
+  },
+  {
+    "frame": 27,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 94.25,
+        "depth": 43.18,
+        "compactness": 27.27,
+        "centroid_x": 63.63,
+        "centroid_y": 45.33
+      },
+      "2": {
+        "player_count": 10,
+        "width": 83.52,
+        "depth": 57.6,
+        "compactness": 33.3,
+        "centroid_x": 44.57,
+        "centroid_y": 43.07
+      }
+    }
+  },
+  {
+    "frame": 28,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 94.02,
+        "depth": 43.4,
+        "compactness": 27.26,
+        "centroid_x": 63.75,
+        "centroid_y": 45.46
+      },
+      "2": {
+        "player_count": 10,
+        "width": 83.67,
+        "depth": 57.56,
+        "compactness": 33.25,
+        "centroid_x": 44.6,
+        "centroid_y": 43.12
+      }
+    }
+  },
+  {
+    "frame": 29,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 93.82,
+        "depth": 43.42,
+        "compactness": 27.21,
+        "centroid_x": 63.83,
+        "centroid_y": 45.56
+      },
+      "2": {
+        "player_count": 10,
+        "width": 83.71,
+        "depth": 57.36,
+        "compactness": 33.2,
+        "centroid_x": 44.59,
+        "centroid_y": 43.13
+      }
+    }
+  },
+  {
+    "frame": 30,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 93.35,
+        "depth": 43.32,
+        "compactness": 27.09,
+        "centroid_x": 63.93,
+        "centroid_y": 45.63
+      },
+      "2": {
+        "player_count": 9,
+        "width": 83.93,
+        "depth": 52.84,
+        "compactness": 33.02,
+        "centroid_x": 42.38,
+        "centroid_y": 40.28
+      }
+    }
+  },
+  {
+    "frame": 31,
+    "teams": {
+      "2": {
+        "player_count": 9,
+        "width": 84.05,
+        "depth": 52.7,
+        "compactness": 33.18,
+        "centroid_x": 42.31,
+        "centroid_y": 40.3
+      },
+      "1": {
+        "player_count": 10,
+        "width": 93.01,
+        "depth": 43.16,
+        "compactness": 27.01,
+        "centroid_x": 64.03,
+        "centroid_y": 45.72
+      }
+    }
+  },
+  {
+    "frame": 32,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 84.13,
+        "depth": 57.34,
+        "compactness": 33.32,
+        "centroid_x": 44.28,
+        "centroid_y": 43.29
+      },
+      "1": {
+        "player_count": 10,
+        "width": 92.76,
+        "depth": 43.11,
+        "compactness": 26.96,
+        "centroid_x": 64.09,
+        "centroid_y": 45.75
+      }
+    }
+  },
+  {
+    "frame": 33,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 84.23,
+        "depth": 56.98,
+        "compactness": 33.25,
+        "centroid_x": 44.18,
+        "centroid_y": 43.28
+      },
+      "1": {
+        "player_count": 10,
+        "width": 92.5,
+        "depth": 43.61,
+        "compactness": 26.87,
+        "centroid_x": 64.0,
+        "centroid_y": 45.77
+      }
+    }
+  },
+  {
+    "frame": 34,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 84.33,
+        "depth": 56.98,
+        "compactness": 33.23,
+        "centroid_x": 44.19,
+        "centroid_y": 43.32
+      },
+      "1": {
+        "player_count": 10,
+        "width": 92.15,
+        "depth": 43.67,
+        "compactness": 26.81,
+        "centroid_x": 64.07,
+        "centroid_y": 45.81
+      }
+    }
+  },
+  {
+    "frame": 35,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 84.42,
+        "depth": 57.1,
+        "compactness": 33.19,
+        "centroid_x": 44.12,
+        "centroid_y": 43.33
+      },
+      "1": {
+        "player_count": 10,
+        "width": 91.69,
+        "depth": 43.75,
+        "compactness": 26.84,
+        "centroid_x": 64.01,
+        "centroid_y": 45.85
+      }
+    }
+  },
+  {
+    "frame": 36,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 84.58,
+        "depth": 57.21,
+        "compactness": 33.21,
+        "centroid_x": 43.99,
+        "centroid_y": 43.4
+      },
+      "1": {
+        "player_count": 9,
+        "width": 91.09,
+        "depth": 36.83,
+        "compactness": 26.87,
+        "centroid_x": 63.16,
+        "centroid_y": 43.53
+      }
+    }
+  },
+  {
+    "frame": 37,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 84.67,
+        "depth": 57.27,
+        "compactness": 33.19,
+        "centroid_x": 43.84,
+        "centroid_y": 43.42
+      },
+      "1": {
+        "player_count": 9,
+        "width": 90.74,
+        "depth": 36.84,
+        "compactness": 26.84,
+        "centroid_x": 63.15,
+        "centroid_y": 43.55
+      }
+    }
+  },
+  {
+    "frame": 38,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 84.8,
+        "depth": 57.26,
+        "compactness": 33.19,
+        "centroid_x": 43.72,
+        "centroid_y": 43.48
+      },
+      "1": {
+        "player_count": 9,
+        "width": 90.72,
+        "depth": 36.71,
+        "compactness": 26.76,
+        "centroid_x": 63.32,
+        "centroid_y": 43.62
+      }
+    }
+  },
+  {
+    "frame": 39,
+    "teams": {
+      "1": {
+        "player_count": 9,
+        "width": 90.75,
+        "depth": 36.68,
+        "compactness": 26.76,
+        "centroid_x": 63.42,
+        "centroid_y": 43.68
+      },
+      "2": {
+        "player_count": 10,
+        "width": 84.92,
+        "depth": 57.22,
+        "compactness": 33.21,
+        "centroid_x": 43.69,
+        "centroid_y": 43.53
+      }
+    }
+  },
+  {
+    "frame": 40,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 85.22,
+        "depth": 57.17,
+        "compactness": 33.23,
+        "centroid_x": 43.68,
+        "centroid_y": 43.54
+      },
+      "1": {
+        "player_count": 9,
+        "width": 90.57,
+        "depth": 36.45,
+        "compactness": 26.71,
+        "centroid_x": 63.55,
+        "centroid_y": 43.71
+      }
+    }
+  },
+  {
+    "frame": 41,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 85.53,
+        "depth": 56.95,
+        "compactness": 33.23,
+        "centroid_x": 43.71,
+        "centroid_y": 43.49
+      },
+      "1": {
+        "player_count": 10,
+        "width": 90.27,
+        "depth": 43.71,
+        "compactness": 26.5,
+        "centroid_x": 64.13,
+        "centroid_y": 46.14
+      }
+    }
+  },
+  {
+    "frame": 42,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 85.64,
+        "depth": 56.8,
+        "compactness": 33.21,
+        "centroid_x": 43.76,
+        "centroid_y": 43.48
+      },
+      "1": {
+        "player_count": 10,
+        "width": 89.98,
+        "depth": 43.68,
+        "compactness": 26.46,
+        "centroid_x": 64.28,
+        "centroid_y": 46.14
+      }
+    }
+  },
+  {
+    "frame": 43,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 89.65,
+        "depth": 43.8,
+        "compactness": 26.45,
+        "centroid_x": 64.35,
+        "centroid_y": 46.15
+      },
+      "2": {
+        "player_count": 10,
+        "width": 85.81,
+        "depth": 56.87,
+        "compactness": 33.2,
+        "centroid_x": 43.85,
+        "centroid_y": 43.46
+      }
+    }
+  },
+  {
+    "frame": 44,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 85.95,
+        "depth": 56.83,
+        "compactness": 33.19,
+        "centroid_x": 43.93,
+        "centroid_y": 43.43
+      },
+      "1": {
+        "player_count": 10,
+        "width": 89.22,
+        "depth": 43.75,
+        "compactness": 26.44,
+        "centroid_x": 64.44,
+        "centroid_y": 46.14
+      }
+    }
+  },
+  {
+    "frame": 45,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 85.92,
+        "depth": 56.92,
+        "compactness": 33.2,
+        "centroid_x": 44.02,
+        "centroid_y": 43.44
+      },
+      "1": {
+        "player_count": 10,
+        "width": 88.88,
+        "depth": 43.44,
+        "compactness": 26.4,
+        "centroid_x": 64.54,
+        "centroid_y": 46.11
+      }
+    }
+  },
+  {
+    "frame": 46,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 86.02,
+        "depth": 56.76,
+        "compactness": 33.21,
+        "centroid_x": 44.1,
+        "centroid_y": 43.42
+      },
+      "1": {
+        "player_count": 10,
+        "width": 88.31,
+        "depth": 43.16,
+        "compactness": 26.45,
+        "centroid_x": 64.38,
+        "centroid_y": 46.1
+      }
+    }
+  },
+  {
+    "frame": 47,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 85.95,
+        "depth": 56.74,
+        "compactness": 33.23,
+        "centroid_x": 44.15,
+        "centroid_y": 43.44
+      },
+      "1": {
+        "player_count": 10,
+        "width": 87.69,
+        "depth": 43.06,
+        "compactness": 26.41,
+        "centroid_x": 64.41,
+        "centroid_y": 46.14
+      }
+    }
+  },
+  {
+    "frame": 48,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 86.06,
+        "depth": 56.85,
+        "compactness": 33.3,
+        "centroid_x": 44.16,
+        "centroid_y": 43.42
+      },
+      "1": {
+        "player_count": 10,
+        "width": 86.77,
+        "depth": 42.89,
+        "compactness": 26.24,
+        "centroid_x": 64.4,
+        "centroid_y": 46.2
+      }
+    }
+  },
+  {
+    "frame": 49,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 86.59,
+        "depth": 42.89,
+        "compactness": 26.29,
+        "centroid_x": 64.47,
+        "centroid_y": 46.24
+      },
+      "2": {
+        "player_count": 10,
+        "width": 86.26,
+        "depth": 56.96,
+        "compactness": 33.34,
+        "centroid_x": 44.2,
+        "centroid_y": 43.42
+      }
+    }
+  },
+  {
+    "frame": 50,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 86.28,
+        "depth": 57.15,
+        "compactness": 33.4,
+        "centroid_x": 44.25,
+        "centroid_y": 43.43
+      },
+      "1": {
+        "player_count": 10,
+        "width": 86.13,
+        "depth": 42.74,
+        "compactness": 26.27,
+        "centroid_x": 64.48,
+        "centroid_y": 46.25
+      }
+    }
+  },
+  {
+    "frame": 51,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 85.91,
+        "depth": 42.7,
+        "compactness": 26.3,
+        "centroid_x": 64.53,
+        "centroid_y": 46.26
+      },
+      "2": {
+        "player_count": 10,
+        "width": 86.36,
+        "depth": 57.04,
+        "compactness": 33.42,
+        "centroid_x": 44.24,
+        "centroid_y": 43.43
+      }
+    }
+  },
+  {
+    "frame": 52,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 86.42,
+        "depth": 57.07,
+        "compactness": 33.44,
+        "centroid_x": 44.32,
+        "centroid_y": 43.4
+      },
+      "1": {
+        "player_count": 10,
+        "width": 85.51,
+        "depth": 42.6,
+        "compactness": 26.26,
+        "centroid_x": 64.66,
+        "centroid_y": 46.19
+      }
+    }
+  },
+  {
+    "frame": 53,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 85.36,
+        "depth": 42.41,
+        "compactness": 26.27,
+        "centroid_x": 64.65,
+        "centroid_y": 46.14
+      },
+      "2": {
+        "player_count": 10,
+        "width": 86.51,
+        "depth": 57.09,
+        "compactness": 33.46,
+        "centroid_x": 44.39,
+        "centroid_y": 43.33
+      }
+    }
+  },
+  {
+    "frame": 54,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 86.65,
+        "depth": 57.0,
+        "compactness": 33.46,
+        "centroid_x": 44.47,
+        "centroid_y": 43.29
+      },
+      "1": {
+        "player_count": 10,
+        "width": 85.32,
+        "depth": 42.34,
+        "compactness": 26.22,
+        "centroid_x": 64.51,
+        "centroid_y": 46.13
+      }
+    }
+  },
+  {
+    "frame": 55,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 86.79,
+        "depth": 56.75,
+        "compactness": 33.46,
+        "centroid_x": 44.6,
+        "centroid_y": 43.26
+      },
+      "1": {
+        "player_count": 10,
+        "width": 85.21,
+        "depth": 42.41,
+        "compactness": 26.23,
+        "centroid_x": 64.55,
+        "centroid_y": 46.19
+      }
+    }
+  },
+  {
+    "frame": 56,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 85.21,
+        "depth": 42.1,
+        "compactness": 26.24,
+        "centroid_x": 64.46,
+        "centroid_y": 46.22
+      },
+      "2": {
+        "player_count": 10,
+        "width": 87.01,
+        "depth": 56.67,
+        "compactness": 33.48,
+        "centroid_x": 44.71,
+        "centroid_y": 43.22
+      }
+    }
+  },
+  {
+    "frame": 57,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 85.09,
+        "depth": 42.19,
+        "compactness": 26.26,
+        "centroid_x": 64.51,
+        "centroid_y": 46.25
+      },
+      "2": {
+        "player_count": 10,
+        "width": 87.25,
+        "depth": 56.73,
+        "compactness": 33.51,
+        "centroid_x": 44.82,
+        "centroid_y": 43.18
+      }
+    }
+  },
+  {
+    "frame": 58,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 85.02,
+        "depth": 42.34,
+        "compactness": 26.32,
+        "centroid_x": 64.51,
+        "centroid_y": 46.25
+      },
+      "2": {
+        "player_count": 10,
+        "width": 87.71,
+        "depth": 56.78,
+        "compactness": 33.57,
+        "centroid_x": 44.87,
+        "centroid_y": 43.12
+      }
+    }
+  },
+  {
+    "frame": 59,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 84.95,
+        "depth": 42.21,
+        "compactness": 26.33,
+        "centroid_x": 64.5,
+        "centroid_y": 46.28
+      },
+      "2": {
+        "player_count": 10,
+        "width": 87.82,
+        "depth": 56.73,
+        "compactness": 33.64,
+        "centroid_x": 44.95,
+        "centroid_y": 43.11
+      }
+    }
+  },
+  {
+    "frame": 60,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 88.04,
+        "depth": 56.84,
+        "compactness": 33.75,
+        "centroid_x": 45.03,
+        "centroid_y": 43.1
+      },
+      "1": {
+        "player_count": 10,
+        "width": 84.97,
+        "depth": 42.0,
+        "compactness": 26.37,
+        "centroid_x": 64.49,
+        "centroid_y": 46.25
+      }
+    }
+  },
+  {
+    "frame": 61,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 88.0,
+        "depth": 56.84,
+        "compactness": 33.79,
+        "centroid_x": 45.15,
+        "centroid_y": 43.11
+      },
+      "1": {
+        "player_count": 10,
+        "width": 85.0,
+        "depth": 41.96,
+        "compactness": 26.34,
+        "centroid_x": 64.46,
+        "centroid_y": 46.2
+      }
+    }
+  },
+  {
+    "frame": 62,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 84.9,
+        "depth": 41.85,
+        "compactness": 26.34,
+        "centroid_x": 64.5,
+        "centroid_y": 46.22
+      },
+      "2": {
+        "player_count": 10,
+        "width": 88.1,
+        "depth": 56.93,
+        "compactness": 33.89,
+        "centroid_x": 45.26,
+        "centroid_y": 43.08
+      }
+    }
+  },
+  {
+    "frame": 63,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 88.5,
+        "depth": 57.0,
+        "compactness": 33.99,
+        "centroid_x": 45.37,
+        "centroid_y": 43.1
+      },
+      "1": {
+        "player_count": 10,
+        "width": 84.8,
+        "depth": 41.86,
+        "compactness": 26.45,
+        "centroid_x": 64.43,
+        "centroid_y": 46.23
+      }
+    }
+  },
+  {
+    "frame": 64,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 84.68,
+        "depth": 41.83,
+        "compactness": 26.49,
+        "centroid_x": 64.46,
+        "centroid_y": 46.25
+      },
+      "2": {
+        "player_count": 10,
+        "width": 88.91,
+        "depth": 57.02,
+        "compactness": 34.09,
+        "centroid_x": 45.52,
+        "centroid_y": 43.11
+      }
+    }
+  },
+  {
+    "frame": 65,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 89.43,
+        "depth": 57.03,
+        "compactness": 34.2,
+        "centroid_x": 45.61,
+        "centroid_y": 43.1
+      },
+      "1": {
+        "player_count": 10,
+        "width": 84.66,
+        "depth": 41.91,
+        "compactness": 26.56,
+        "centroid_x": 64.51,
+        "centroid_y": 46.25
+      }
+    }
+  },
+  {
+    "frame": 66,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 90.09,
+        "depth": 57.12,
+        "compactness": 34.32,
+        "centroid_x": 45.72,
+        "centroid_y": 43.06
+      },
+      "1": {
+        "player_count": 10,
+        "width": 84.57,
+        "depth": 41.83,
+        "compactness": 26.52,
+        "centroid_x": 64.58,
+        "centroid_y": 46.22
+      }
+    }
+  },
+  {
+    "frame": 67,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 84.46,
+        "depth": 41.69,
+        "compactness": 26.48,
+        "centroid_x": 64.65,
+        "centroid_y": 46.24
+      },
+      "2": {
+        "player_count": 10,
+        "width": 90.6,
+        "depth": 57.06,
+        "compactness": 34.4,
+        "centroid_x": 45.83,
+        "centroid_y": 42.98
+      }
+    }
+  },
+  {
+    "frame": 68,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 90.61,
+        "depth": 57.02,
+        "compactness": 34.39,
+        "centroid_x": 46.02,
+        "centroid_y": 42.96
+      },
+      "1": {
+        "player_count": 10,
+        "width": 84.38,
+        "depth": 41.44,
+        "compactness": 26.54,
+        "centroid_x": 64.67,
+        "centroid_y": 46.25
+      }
+    }
+  },
+  {
+    "frame": 69,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 84.46,
+        "depth": 41.39,
+        "compactness": 26.53,
+        "centroid_x": 64.67,
+        "centroid_y": 46.2
+      },
+      "2": {
+        "player_count": 10,
+        "width": 90.69,
+        "depth": 56.99,
+        "compactness": 34.42,
+        "centroid_x": 46.18,
+        "centroid_y": 42.95
+      }
+    }
+  },
+  {
+    "frame": 70,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 90.76,
+        "depth": 57.26,
+        "compactness": 34.46,
+        "centroid_x": 46.29,
+        "centroid_y": 42.93
+      },
+      "1": {
+        "player_count": 10,
+        "width": 84.71,
+        "depth": 41.24,
+        "compactness": 26.66,
+        "centroid_x": 64.57,
+        "centroid_y": 46.22
+      }
+    }
+  },
+  {
+    "frame": 71,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 84.49,
+        "depth": 41.38,
+        "compactness": 26.71,
+        "centroid_x": 64.62,
+        "centroid_y": 46.25
+      },
+      "2": {
+        "player_count": 10,
+        "width": 90.77,
+        "depth": 57.5,
+        "compactness": 34.56,
+        "centroid_x": 46.39,
+        "centroid_y": 42.92
+      }
+    }
+  },
+  {
+    "frame": 72,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 84.73,
+        "depth": 41.21,
+        "compactness": 26.69,
+        "centroid_x": 64.54,
+        "centroid_y": 46.25
+      },
+      "2": {
+        "player_count": 10,
+        "width": 90.93,
+        "depth": 57.49,
+        "compactness": 34.67,
+        "centroid_x": 46.49,
+        "centroid_y": 42.89
+      }
+    }
+  },
+  {
+    "frame": 73,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 84.48,
+        "depth": 41.25,
+        "compactness": 26.71,
+        "centroid_x": 64.59,
+        "centroid_y": 46.28
+      },
+      "2": {
+        "player_count": 10,
+        "width": 91.13,
+        "depth": 57.56,
+        "compactness": 34.76,
+        "centroid_x": 46.68,
+        "centroid_y": 42.89
+      }
+    }
+  },
+  {
+    "frame": 74,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 91.47,
+        "depth": 57.3,
+        "compactness": 34.85,
+        "centroid_x": 46.83,
+        "centroid_y": 42.86
+      },
+      "1": {
+        "player_count": 10,
+        "width": 84.46,
+        "depth": 41.29,
+        "compactness": 26.72,
+        "centroid_x": 64.71,
+        "centroid_y": 46.27
+      }
+    }
+  },
+  {
+    "frame": 75,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 91.71,
+        "depth": 57.6,
+        "compactness": 34.94,
+        "centroid_x": 47.01,
+        "centroid_y": 42.77
+      },
+      "1": {
+        "player_count": 10,
+        "width": 84.26,
+        "depth": 41.21,
+        "compactness": 26.72,
+        "centroid_x": 64.92,
+        "centroid_y": 46.34
+      }
+    }
+  },
+  {
+    "frame": 76,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 92.07,
+        "depth": 57.64,
+        "compactness": 35.02,
+        "centroid_x": 47.22,
+        "centroid_y": 42.77
+      },
+      "1": {
+        "player_count": 10,
+        "width": 84.01,
+        "depth": 41.14,
+        "compactness": 26.7,
+        "centroid_x": 64.98,
+        "centroid_y": 46.38
+      }
+    }
+  },
+  {
+    "frame": 77,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 92.39,
+        "depth": 57.86,
+        "compactness": 35.12,
+        "centroid_x": 47.45,
+        "centroid_y": 42.81
+      },
+      "1": {
+        "player_count": 10,
+        "width": 83.96,
+        "depth": 41.2,
+        "compactness": 26.75,
+        "centroid_x": 65.06,
+        "centroid_y": 46.35
+      }
+    }
+  },
+  {
+    "frame": 78,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 84.57,
+        "depth": 40.9,
+        "compactness": 26.96,
+        "centroid_x": 64.95,
+        "centroid_y": 46.38
+      },
+      "2": {
+        "player_count": 10,
+        "width": 93.01,
+        "depth": 57.91,
+        "compactness": 35.18,
+        "centroid_x": 47.63,
+        "centroid_y": 42.82
+      }
+    }
+  },
+  {
+    "frame": 79,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 93.53,
+        "depth": 58.05,
+        "compactness": 35.23,
+        "centroid_x": 47.83,
+        "centroid_y": 42.84
+      },
+      "1": {
+        "player_count": 10,
+        "width": 84.04,
+        "depth": 40.75,
+        "compactness": 26.96,
+        "centroid_x": 65.09,
+        "centroid_y": 46.4
+      }
+    }
+  },
+  {
+    "frame": 80,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 83.87,
+        "depth": 40.47,
+        "compactness": 26.98,
+        "centroid_x": 65.17,
+        "centroid_y": 46.33
+      },
+      "2": {
+        "player_count": 10,
+        "width": 93.99,
+        "depth": 58.25,
+        "compactness": 35.34,
+        "centroid_x": 48.05,
+        "centroid_y": 42.84
+      }
+    }
+  },
+  {
+    "frame": 81,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 83.7,
+        "depth": 40.33,
+        "compactness": 26.93,
+        "centroid_x": 65.38,
+        "centroid_y": 46.31
+      },
+      "2": {
+        "player_count": 10,
+        "width": 94.24,
+        "depth": 58.22,
+        "compactness": 35.35,
+        "centroid_x": 48.3,
+        "centroid_y": 42.82
+      }
+    }
+  },
+  {
+    "frame": 82,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 94.03,
+        "depth": 58.03,
+        "compactness": 35.22,
+        "centroid_x": 48.56,
+        "centroid_y": 42.82
+      },
+      "1": {
+        "player_count": 10,
+        "width": 83.1,
+        "depth": 39.82,
+        "compactness": 26.81,
+        "centroid_x": 65.47,
+        "centroid_y": 46.23
+      }
+    }
+  },
+  {
+    "frame": 83,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 93.87,
+        "depth": 57.69,
+        "compactness": 35.18,
+        "centroid_x": 48.74,
+        "centroid_y": 42.72
+      },
+      "1": {
+        "player_count": 10,
+        "width": 82.99,
+        "depth": 39.55,
+        "compactness": 26.72,
+        "centroid_x": 65.62,
+        "centroid_y": 46.18
+      }
+    }
+  },
+  {
+    "frame": 84,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 93.76,
+        "depth": 57.53,
+        "compactness": 35.13,
+        "centroid_x": 49.02,
+        "centroid_y": 42.69
+      },
+      "1": {
+        "player_count": 10,
+        "width": 83.1,
+        "depth": 39.37,
+        "compactness": 26.71,
+        "centroid_x": 65.73,
+        "centroid_y": 46.11
+      }
+    }
+  },
+  {
+    "frame": 85,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 93.88,
+        "depth": 57.15,
+        "compactness": 35.04,
+        "centroid_x": 49.34,
+        "centroid_y": 42.61
+      },
+      "1": {
+        "player_count": 10,
+        "width": 83.42,
+        "depth": 39.17,
+        "compactness": 26.67,
+        "centroid_x": 65.67,
+        "centroid_y": 46.08
+      }
+    }
+  },
+  {
+    "frame": 86,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 82.71,
+        "depth": 38.87,
+        "compactness": 26.58,
+        "centroid_x": 65.65,
+        "centroid_y": 46.05
+      },
+      "2": {
+        "player_count": 10,
+        "width": 94.05,
+        "depth": 56.84,
+        "compactness": 34.88,
+        "centroid_x": 49.69,
+        "centroid_y": 42.61
+      }
+    }
+  },
+  {
+    "frame": 87,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 94.21,
+        "depth": 56.65,
+        "compactness": 34.79,
+        "centroid_x": 49.96,
+        "centroid_y": 42.58
+      },
+      "1": {
+        "player_count": 10,
+        "width": 82.53,
+        "depth": 38.66,
+        "compactness": 26.52,
+        "centroid_x": 65.85,
+        "centroid_y": 46.05
+      }
+    }
+  },
+  {
+    "frame": 88,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 82.16,
+        "depth": 38.49,
+        "compactness": 26.53,
+        "centroid_x": 65.95,
+        "centroid_y": 45.98
+      },
+      "2": {
+        "player_count": 10,
+        "width": 94.46,
+        "depth": 56.3,
+        "compactness": 34.7,
+        "centroid_x": 50.22,
+        "centroid_y": 42.52
+      }
+    }
+  },
+  {
+    "frame": 89,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 81.71,
+        "depth": 38.22,
+        "compactness": 26.4,
+        "centroid_x": 66.24,
+        "centroid_y": 45.89
+      },
+      "2": {
+        "player_count": 11,
+        "width": 94.3,
+        "depth": 56.1,
+        "compactness": 32.39,
+        "centroid_x": 50.92,
+        "centroid_y": 41.48
+      }
+    }
+  },
+  {
+    "frame": 90,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 80.85,
+        "depth": 37.84,
+        "compactness": 26.22,
+        "centroid_x": 66.47,
+        "centroid_y": 45.82
+      },
+      "2": {
+        "player_count": 10,
+        "width": 94.21,
+        "depth": 55.74,
+        "compactness": 34.46,
+        "centroid_x": 50.99,
+        "centroid_y": 42.44
+      }
+    }
+  },
+  {
+    "frame": 91,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 80.13,
+        "depth": 37.56,
+        "compactness": 26.1,
+        "centroid_x": 66.65,
+        "centroid_y": 45.7
+      },
+      "2": {
+        "player_count": 10,
+        "width": 94.23,
+        "depth": 55.41,
+        "compactness": 34.35,
+        "centroid_x": 51.36,
+        "centroid_y": 42.36
+      }
+    }
+  },
+  {
+    "frame": 92,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 94.11,
+        "depth": 55.06,
+        "compactness": 34.21,
+        "centroid_x": 51.71,
+        "centroid_y": 42.34
+      },
+      "1": {
+        "player_count": 10,
+        "width": 79.78,
+        "depth": 37.19,
+        "compactness": 26.02,
+        "centroid_x": 66.74,
+        "centroid_y": 45.6
+      }
+    }
+  },
+  {
+    "frame": 93,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 79.68,
+        "depth": 36.58,
+        "compactness": 25.93,
+        "centroid_x": 67.05,
+        "centroid_y": 45.49
+      },
+      "2": {
+        "player_count": 10,
+        "width": 94.18,
+        "depth": 54.94,
+        "compactness": 34.12,
+        "centroid_x": 52.13,
+        "centroid_y": 42.28
+      }
+    }
+  },
+  {
+    "frame": 94,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 94.35,
+        "depth": 54.71,
+        "compactness": 34.01,
+        "centroid_x": 52.62,
+        "centroid_y": 42.24
+      },
+      "1": {
+        "player_count": 10,
+        "width": 79.87,
+        "depth": 36.22,
+        "compactness": 25.91,
+        "centroid_x": 67.19,
+        "centroid_y": 45.51
+      }
+    }
+  },
+  {
+    "frame": 95,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 79.31,
+        "depth": 36.02,
+        "compactness": 25.79,
+        "centroid_x": 67.5,
+        "centroid_y": 45.43
+      },
+      "2": {
+        "player_count": 10,
+        "width": 94.51,
+        "depth": 54.33,
+        "compactness": 33.87,
+        "centroid_x": 53.05,
+        "centroid_y": 42.22
+      }
+    }
+  },
+  {
+    "frame": 96,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 78.71,
+        "depth": 35.76,
+        "compactness": 25.68,
+        "centroid_x": 67.75,
+        "centroid_y": 45.2
+      },
+      "2": {
+        "player_count": 10,
+        "width": 94.74,
+        "depth": 54.07,
+        "compactness": 33.78,
+        "centroid_x": 53.41,
+        "centroid_y": 42.21
+      }
+    }
+  },
+  {
+    "frame": 97,
+    "teams": {
+      "2": {
+        "player_count": 10,
+        "width": 94.03,
+        "depth": 53.83,
+        "compactness": 33.59,
+        "centroid_x": 53.61,
+        "centroid_y": 42.15
+      },
+      "1": {
+        "player_count": 10,
+        "width": 78.28,
+        "depth": 35.63,
+        "compactness": 25.57,
+        "centroid_x": 67.72,
+        "centroid_y": 45.3
+      }
+    }
+  },
+  {
+    "frame": 98,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 78.02,
+        "depth": 35.37,
+        "compactness": 25.5,
+        "centroid_x": 67.86,
+        "centroid_y": 45.25
+      },
+      "2": {
+        "player_count": 10,
+        "width": 93.8,
+        "depth": 53.5,
+        "compactness": 33.44,
+        "centroid_x": 53.89,
+        "centroid_y": 42.16
+      }
+    }
+  },
+  {
+    "frame": 99,
+    "teams": {
+      "1": {
+        "player_count": 10,
+        "width": 77.1,
+        "depth": 35.04,
+        "compactness": 25.32,
+        "centroid_x": 67.89,
+        "centroid_y": 45.15
+      },
+      "2": {
+        "player_count": 10,
+        "width": 93.55,
+        "depth": 53.27,
+        "compactness": 33.31,
+        "centroid_x": 54.2,
+        "centroid_y": 42.07
+      }
+    }
+  }
+]

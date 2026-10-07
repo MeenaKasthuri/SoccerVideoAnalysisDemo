@@ -110,6 +110,18 @@ Implemented a rule-based first version that identifies frames with at least two 
 
 Synthetic validation confirms that two nearby players are detected, a single nearby player is not classified as contested, and nearest-player assignment is unchanged. The cached 100-frame flow produced 3 `divided_ball` events at frames 0, 1, and 21 out of 12 total events. Generated annotated evidence was visually inspected at frame 0 and confirmed two players near the ball. The 70-pixel threshold remains a rule-based approximation and should be tuned or replaced with a calibrated pitch-distance rule for broader match conditions.
 
+## Football Intelligence
+
+| Task | Status | Notes |
+|---|---|---|
+| Team width / depth / compactness | Done | Validated on enriched 100-frame tracking output. |
+| Temporal comparison | Planned | High priority follow-up. |
+| Defensive-line positioning | Planned |  |
+| Occupied-area / spacing metrics | Planned |  |
+
+### Team Shape Metrics v1
+Implemented per-frame team spatial width, depth, centroid, compactness, and player-count metrics. Exported JSON and CSV results and generated a team-width-over-time chart from the enriched 100-frame tracking output. Width and depth currently refer to the pitch-coordinate X and Y spans; the pitch-axis convention remains to be verified before using definitive football lateral/longitudinal labels.
+
 ## Current Recommendation
 
 Maintain the CPU benchmark results as the performance baseline. The next performance phase should investigate GPU acceleration while preserving CPU compatibility and comparing processing time, FPS, detection quality, and resource utilization.
