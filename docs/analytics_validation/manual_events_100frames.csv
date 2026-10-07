@@ -1,0 +1,13 @@
+frame,event_type,player_id,related_player_id,system_detected,manual_valid,notes
+0,divided_ball,24,22,true,true,Two players visibly contesting the ball
+0,touch,24,,true,unclear,Ball is near the contested pair but clear control by player 24 is difficult to confirm
+1,divided_ball,24,22,true,true,Contested-ball situation continues with both players near the ball
+12,touch,23,24,true,true,Player 23 appears to be the active ball carrier in the frame
+12,possession_change,23,24,true,true,Possession transfer to player 23 appears visually plausible
+21,divided_ball,22,24,true,true,Players 22 and 24 are visibly contesting the ball
+21,touch,22,23,true,true,Player 22 is at the ball during the contested sequence
+21,possession_change,22,23,true,false,Possible possession flicker during contested-ball sequence
+22,touch,23,22,true,unclear,Player 23 is near the ball but control is difficult to confirm during the one-frame reversal
+22,possession_change,23,22,true,false,Possible one-frame possession flicker
+90,touch,8,23,true,true,Player 8 appears to receive the ball; the spatial coordinate is separately invalid
+90,possession_change,8,23,true,true,Possession change appears valid; pitch coordinate is outside expected field range
