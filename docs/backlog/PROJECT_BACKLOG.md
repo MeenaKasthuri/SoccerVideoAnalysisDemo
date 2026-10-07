@@ -1,5 +1,77 @@
 # Sports Analytics Platform Backlog
 
+# Current Development Roadmap
+
+The project is now moving from performance profiling of the inherited
+computer-vision pipeline toward validated football intelligence.
+
+## Priority 1 — Reliable Detection & Validation
+
+- Multi-video validation — High / Planned
+- 960-resolution anomaly investigation — High / Planned
+- Player/referee/ball detection-quality metrics — High / Planned
+- Low-quality/amateur footage validation — High / Planned
+- GPU benchmark — Planned when suitable hardware is available
+
+## Priority 2 — Structured Events & Analytics
+
+- CSV Export — Done
+- Event Data Model — Done
+- Touch events — Done
+- Possession-change events — Done
+- Divided-ball / contested-ball events — Done
+- Ball recovery — Planned
+- Pass detection — Planned
+- Interception detection — Future
+- Shot-event detection — Planned
+
+## Priority 3 — Analytics Validation
+
+- Manual event validation — Done (100-frame validation v1)
+- Touch validation — Done for initial segment
+- Possession-change validation — Done for initial segment
+- Divided-ball validation — Done for initial segment
+- Longer/multi-video analytics validation — Planned
+
+## Priority 4 — Football Intelligence
+
+- Team spatial width — Done
+- Team spatial depth — Done
+- Team compactness — Done
+- Team centroid — Done
+- Temporal comparison — High / Planned
+- Defensive-line positioning — Planned
+- Team spacing / occupied area — Planned
+
+## Priority 5 — Tactical Visualization
+
+- Synchronized match video + 2D tactical pitch — High / Planned
+- Player/ball trajectories in synchronized view — Planned
+- Possession and event overlays — Planned
+- Team-shape metric overlays — Planned
+- Broadcast-style analytics visualization — Planned
+
+## Future Match Intelligence
+
+- Soccer Match Summary dashboard — Planned
+- Shot location and distance — Planned
+- Shot angle — Planned
+- Goalkeeper position during shots — Planned
+- Defender pressure around shooter — Planned
+- Shot outcome — Planned
+- Possession sequence before shot — Planned
+- Expected Goals (xG) — Future, after validated shot-event detection
+
+### Development Dependency
+
+Reliable tracking  
+→ Structured events  
+→ Validated events  
+→ Football intelligence  
+→ Shot detection and context  
+→ Expected Goals  
+→ Match Summary dashboard
+
 This document is based on the inherited project backlog and is maintained as a living backlog for continued development.
 
 ## Project Foundation
