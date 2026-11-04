@@ -1,5 +1,6 @@
 import numpy as np
 import cv2
+from utils import draw_clamped_label
 class OverlayVisualizer:
     def __init__(self):
         pass
@@ -149,14 +150,14 @@ class OverlayVisualizer:
                 2
             )
 
-            cv2.putText(
+            draw_clamped_label(
                 frame,
-                str(track_id),
+                track_id,
                 (x1, y1 - 8),
-                cv2.FONT_HERSHEY_SIMPLEX,
-                0.5,
                 color,
-                2
+                font_scale=0.5,
+                thickness=2,
+                background=False
             )
 
         return frame
@@ -176,6 +177,5 @@ class OverlayVisualizer:
                 color,
                 2
             )
-
 
 

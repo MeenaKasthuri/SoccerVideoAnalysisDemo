@@ -52,3 +52,10 @@ JSON_data/
 build/
 dist/
 *.egg-info/
+
+# Generated Colab releases and local validation reports
+SoccerProject_Colab_Source*.zip
+Soccer_Analytics_Colab.backup_*.ipynb
+validation_local/
+deployment_report.json
+.deploy.lock

@@ -6,41 +6,60 @@ class CameraMotionEstimator:
         self.total_dx = 0.0
         self.total_dy = 0.0
         self.prev_gray = None
+        self.last_update_valid = False
 
-    #Estimate Motion
     def update_camera(self, frame):
+        """Return incremental image displacement since the previous call.
+
+        The first frame, a changed image size, or unavailable/invalid feature
+        matches return (0.0, 0.0). Zero on failure means no measured increment,
+        not proof of a stationary camera. Every accepted frame becomes the next
+        reference, so recovery never bridges a failed interval. total_dx/dy sum
+        only valid estimates; they are never returned as a per-call increment.
+
+        Callers that sample every N frames receive displacement across those N
+        frames, rather than a displacement normalized to one source-video frame.
+        """
         gray = cv2.cvtColor(
             frame,
             cv2.COLOR_BGR2GRAY
         )
+        self.last_update_valid = False
 
-        if self.prev_gray is None:
-            self.prev_gray = gray
-
-            return 0, 0
+        previous = self.prev_gray
+        self.prev_gray = gray
+        if previous is None or previous.shape != gray.shape:
+            return 0.0, 0.0
 
         #Detect Features
-        prev_points = cv2.goodFeaturesToTrack(
-            self.prev_gray,
-            maxCorners=200,
-            qualityLevel=0.01,
-            minDistance=20
-        )
-        if prev_points is None:
-            self.prev_gray = gray
-            return self.total_dx, self.total_dy
+        try:
+            prev_points = cv2.goodFeaturesToTrack(
+                previous,
+                maxCorners=200,
+                qualityLevel=0.01,
+                minDistance=20
+            )
+        except cv2.error:
+            return 0.0, 0.0
+        if prev_points is None or prev_points.size == 0:
+            return 0.0, 0.0
 
         #Track features
-        next_points, status, _ = cv2.calcOpticalFlowPyrLK(
-            self.prev_gray,
-            gray,
-            prev_points,
-            None
-        )
+        try:
+            next_points, status, _ = cv2.calcOpticalFlowPyrLK(
+                previous,
+                gray,
+                prev_points,
+                None
+            )
+        except cv2.error:
+            return 0.0, 0.0
 
         if next_points is None or status is None:
-            self.prev_gray = gray
-            return self.total_dx, self.total_dy
+            return 0.0, 0.0
+        if (len(next_points) != len(prev_points)
+                or status.size != len(prev_points)):
+            return 0.0, 0.0
 
         #Keep good matches
         good_old = prev_points[
@@ -51,31 +70,17 @@ class CameraMotionEstimator:
             status.flatten() == 1
             ]
 
-        #Compute and accumulate motion
-        motion = good_new - good_old
-        print("motion shape:", motion.shape)
-        print("motion sample:", motion[:5])
+        # Compute and accumulate only finite, valid increments.
+        motion = (good_new - good_old).reshape(-1, 2)
+        motion = motion[np.isfinite(motion).all(axis=1)]
         if len(motion) == 0:
-            return 0, 0
+            return 0.0, 0.0
 
-        motion = motion.reshape(-1, 2)
-        dx = np.median(motion[:, 0])
-        dy = np.median(motion[:, 1])
-
-        #Debugging code
-        print(
-            "Frame motion:",
-            round(dx, 2),
-            round(dy, 2),
-            "Total:",
-            round(self.total_dx, 2),
-            round(self.total_dy, 2)
-        )
+        dx = float(np.median(motion[:, 0]))
+        dy = float(np.median(motion[:, 1]))
 
         self.total_dx += dx
         self.total_dy += dy
-
-        #Save Frame
-        self.prev_gray = gray
+        self.last_update_valid = True
 
         return dx, dy

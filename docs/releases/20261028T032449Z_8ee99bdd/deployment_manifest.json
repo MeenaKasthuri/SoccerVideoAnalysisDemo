@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "release_id": "20261028T032449Z_8ee99bdd",
+  "drive_binding": {
+    "approved_root_id": "18jlQkG3zSjj-Eogo-uJ4gcuZxX6buBl4",
+    "project_folder_id": "1k9LxrKNBogsE_Z-QOqmH6ncecI6nYJ-o",
+    "colab_folder_id": "1KC_ybaf_aWRt_4UTt0rc7bbH_-Nty7CC",
+    "notebook_id": "1gTBP7t7mw70pOLoTH6XV-RofPR5LA44E"
+  },
+  "built_at": "2026-10-27T23:24:44",
+  "deployed_at_utc": "2026-10-28T03:24:52.651087+00:00",
+  "zip": {
+    "name": "SoccerProject_Colab_Source.zip",
+    "sha256": "b9cbce539bd358078e05337e686f4ef1307e915ffec89791e11629ac4b36fb05",
+    "bytes": 37515790
+  },
+  "notebook": {
+    "name": "Soccer_Analytics_Colab.ipynb",
+    "sha256": "1391790aa36f4470389451acb75bfb094481da16820efcb5bab2397603506c09",
+    "template_sha256": "b4bac92ae866afb8dc02e89220cc0b70d86f208092b7628dd5133c3859183f99"
+  },
+  "local_validation": {
+    "tests_run": 117,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "successful": true,
+    "syntax_python_files": 25,
+    "syntax_notebook_cells": 1,
+    "original_python_files_verified_unchanged": 42,
+    "original_files_changed": [],
+    "elapsed_s": 20.39,
+    "local_yolo_inference_run": false,
+    "colab_gpu_validation_run": false,
+    "real_ocr_accuracy_validated": false,
+    "note": "Synthetic detection/OCR; real OpenCV, ByteTrack, original drawing and streaming exports."
+  },
+  "cloud_sync_status": "pending_or_unknown"
+}

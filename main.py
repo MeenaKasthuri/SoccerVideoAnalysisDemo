@@ -70,6 +70,7 @@ def main(
         options = None
 ):
     total_start = time.perf_counter()
+    os.makedirs(output_folder, exist_ok=True)
     if options is None:
         options = {
             "pitch": True,
@@ -79,7 +80,8 @@ def main(
             "overlay_heatmap": True,
             "json": True,
             "csv": True,
-            "database": True
+            "database": True,
+            "spatial_reliable": True
         }
     ###-----RESULTS DICT-----###
     results = {}
@@ -152,6 +154,14 @@ def main(
     homography.compute_homography()
 
     tracks = homography.transform_tracks(tracks)
+
+    # Keep coordinates available for compatibility, but do not report them
+    # as spatially reliable when the camera geometry is not calibrated.
+    if not options.get("spatial_reliable", True):
+        for category in ["players", "ball", "referees"]:
+            for frame_objects in tracks.get(category, []):
+                for obj in frame_objects.values():
+                    obj["coordinate_valid"] = False
 
 
     first_frame = tracks["players"][0]
@@ -327,6 +337,13 @@ def main(
 
         ball["pitch_x"] = pitch_x
         ball["pitch_y"] = pitch_y
+        if options.get("spatial_reliable", True):
+            ball["coordinate_valid"] = homography.is_valid_pitch_coordinate(
+                pitch_x,
+                pitch_y
+            )
+        else:
+            ball["coordinate_valid"] = False
 
     # Assign player teams
     team_assigner = TeamAssigner()
@@ -407,7 +424,8 @@ def main(
                 "teams": [player_track[player_id].get("team")
                           for player_id in divided_ball["player_ids"]],
                 "pitch_x": ball.get("pitch_x"),
-                "pitch_y": ball.get("pitch_y")
+                "pitch_y": ball.get("pitch_y"),
+                "coordinate_valid": ball.get("coordinate_valid", True)
             })
 
         assigned_player = player_assigner.assign_ball_to_player(player_track, ball_bbox)
@@ -436,7 +454,7 @@ def main(
 
     export_events_json(
         event_data,
-        "JSON_data/events.json"
+        f"JSON_data/{video_name}_events.json"
     )
 
     print("-----EVENT DATA MODEL-----")
@@ -491,10 +509,10 @@ def main(
 
         export_tracking_json(
             tracks,
-            "JSON_data/tracking_output.json"
+            f"JSON_data/{video_name}_tracking.json"
         )
         results["JSON"] = \
-            "JSON_data/tracking_output.json"
+            f"JSON_data/{video_name}_tracking.json"
 
     # CSV implementation
 
@@ -502,11 +520,11 @@ def main(
 
         export_tracking_csv(
             tracks,
-            "CSV_data/tracking_output.csv"
+            f"CSV_data/{video_name}_tracking.csv"
         )
 
         results["CSV"] = \
-            "CSV_data/tracking_output.csv"
+            f"CSV_data/{video_name}_tracking.csv"
 
     analytics_time = time.perf_counter() - analytics_start
     print(f"[TIME] Team assignment + analytics: {analytics_time:.2f} seconds")
@@ -809,7 +827,7 @@ def main(
         output_video_frames,
         os.path.join(
             output_folder,
-            "output_video_Soccer.avi"
+            f"{video_name}_annotated.avi"
         ),
         fps
     )
@@ -822,7 +840,17 @@ def main(
 if __name__ == "__main__":
 
     main(
-
-        "Video_Input/Soccer_Test_Video.mp4"
-
+        "Video_Input/validation_videos/Soccer_Video1 A.MP4",
+        output_folder="output_videos/validation_Soccer_Video1",
+        options={
+            "pitch": False,
+            "heatmap": False,
+            "zones": False,
+            "hulls": False,
+            "overlay_heatmap": False,
+            "json": True,
+            "csv": True,
+            "database": False,
+            "spatial_reliable": False
+        }
     )
