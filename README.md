@@ -81,6 +81,10 @@ not GPU validation of later code changes.
 The fixed 70-pixel ownership threshold remains a baseline heuristic. Pitch
 coordinates remain unreliable without per-video/camera-segment calibration and
 independent validation. Field filtering alone is not metric homography.
+Optional ownership experiments and offline event/spatial assessment tools are
+described in [validation contracts](docs/validation_contracts.md). Their defaults
+and explicit review gates prevent provisional experiments from becoming accepted
+accuracy claims.
 Baseline/improved comparisons must use identical labeled source frames and record
 video/model hashes, commit, configuration, device, errors and elapsed time.
 

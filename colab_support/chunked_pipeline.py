@@ -275,6 +275,11 @@ def _run(video_path, paths, chunk_size, require_gpu, seed, model_path, progress,
     fps = summary["video_info"]["fps"]
     if fps <= 0:
         raise ValueError("Video FPS must be positive")
+    ownership_config = (improvements or {}).get("ball_ownership")
+    player_assigner = PlayerBallAssigner.from_configuration(
+        ownership_config,
+        image_size=(summary["video_info"]["width"], summary["video_info"]["height"]))
+    summary["ball_ownership_configuration"] = player_assigner.configuration
     if require_gpu:
         import torch
         if not torch.cuda.is_available():
@@ -348,7 +353,6 @@ def _run(video_path, paths, chunk_size, require_gpu, seed, model_path, progress,
         ball["pitch_y"] = pitch_y
         ball["coordinate_valid"] = False
 
-    player_assigner = PlayerBallAssigner()                     # mirrors main.py
     team_ball_control = []
     tracks["divided_ball"] = []
     for frame_num, player_track in enumerate(tracks['players']):
@@ -371,7 +375,10 @@ def _run(video_path, paths, chunk_size, require_gpu, seed, model_path, progress,
                 "pitch_y": ball.get("pitch_y"),
                 "coordinate_valid": ball.get("coordinate_valid", True)
             })
-        assigned_player = player_assigner.assign_ball_to_player(player_track, ball_bbox)
+        ownership = player_assigner.ownership_observation(player_track, ball_bbox)
+        if ownership_config is not None:
+            tracks['ball'][frame_num][1]['ownership_observation'] = ownership
+        assigned_player = ownership["player_id"] if ownership["player_id"] is not None else -1
         if assigned_player != -1:
             tracks['players'][frame_num][assigned_player]['has_ball'] = True
             team_ball_control.append(player_track[assigned_player]['team'])

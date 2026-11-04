@@ -30,7 +30,8 @@ PACKAGE_DIRS = [
 ]
 ROOT_FILES = ["main.py", "streamlit_app.py", "yolo_inference.py", "README.md", ".gitignore"]
 EXTRA_GLOBS = ["docs/analytics_validation/*.py", "docs/analytics_validation/*.md",
-               "docs/releases/**/*.md", "docs/releases/**/*.json"]
+               "docs/releases/**/*.md", "docs/releases/**/*.json",
+               "docs/validation_contracts.md"]
 MODEL_FILES = ["models/best (2).pt"]
 PREP_FILES = {name: PREP_DIR / name for name in (
     "requirements_colab.txt", "build_colab_zip.py", "deploy_colab.py",
