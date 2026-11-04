@@ -205,8 +205,9 @@ def run_chunked(video_path, output_dir, chunk_size=60, require_gpu=True,
 
     output_dir receives <video>_annotated.avi, <video>_events.json,
     <video>_tracking.json, <video>_tracking.csv, pipeline_log.txt and
-    run_summary.json. chunk_size must be a multiple of 5 so the every-5-frames
-    camera-motion cadence in draw_annotations stays aligned with main.py.
+    run_summary.json. The existing positive multiple-of-five chunk contract is
+    retained. Annotation now estimates and accumulates camera motion per frame,
+    preserving its state across annotation batches.
     """
     if chunk_size < 5 or chunk_size % 5:
         raise ValueError("chunk_size must be a positive multiple of 5")

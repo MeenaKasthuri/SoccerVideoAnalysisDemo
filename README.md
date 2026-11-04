@@ -66,9 +66,10 @@ physical touch or genuine contest.
 `CameraMotionEstimator.update_camera` returns displacement since its previous
 call, or zero when an increment cannot be measured. It always advances the image
 reference after an accepted frame. Zero is an unavailable estimate, not proof of
-a stationary camera. The inherited trajectory overlay still has limitations in
-how it consumes sampled motion estimates; corrected estimator tests do not prove
-camera-compensated trajectory accuracy.
+a stationary camera. Trajectory drawing now accumulates per-frame increments
+once, preserves state across batches and clears its trail after an unavailable
+increment. This is translation-stabilized image drawing. Rotation, zoom, parallax
+and real trajectory accuracy still require footage validation.
 
 ## Validation status
 

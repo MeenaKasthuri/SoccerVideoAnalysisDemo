@@ -738,6 +738,7 @@ class Tracker:
         x = int((bbox[0] + bbox[2]) / 2)
         y = int(bbox[3])
 
+        # Translation-stabilized image coordinates, not metric pitch positions.
         world_x = x - offset_x
         world_y = y - offset_y
 
@@ -815,23 +816,23 @@ class Tracker:
         for frame_num, frame in enumerate(video_frames):
             frame = frame.copy()
 
-            # Optimize camera-motion estimation by recalculating every 5 frames
-            # and reusing the previous offset between calculations.
-            if frame_num % 5 == 0:
-                camera_start = time.perf_counter()
-
-                offset_x, offset_y = self.motion_estimator.update_camera(frame)
-
-                camera_motion_total += time.perf_counter() - camera_start
-
-                self.last_camera_offset = (offset_x, offset_y)
-
+            # Each measured increment is accumulated exactly once. Estimating
+            # each frame avoids treating a five-frame increment as a position,
+            # and makes the result independent of annotation batch boundaries.
+            camera_start = time.perf_counter()
+            dx, dy = self.motion_estimator.update_camera(frame)
+            camera_motion_total += time.perf_counter() - camera_start
+            valid = (getattr(self.motion_estimator, "last_update_valid", True)
+                     and np.isfinite([dx, dy]).all())
+            if valid:
+                previous_x, previous_y = getattr(self, "annotation_camera_offset", (0.0, 0.0))
+                offset_x, offset_y = previous_x + dx, previous_y + dy
             else:
-                offset_x, offset_y = getattr(
-                    self,
-                    "last_camera_offset",
-                    (0.0, 0.0)
-                )
+                # An unmeasured interval cannot support a compensated trail.
+                # Start a new image-coordinate segment rather than bridge it.
+                self.track_history.clear()
+                offset_x, offset_y = 0.0, 0.0
+            self.annotation_camera_offset = (offset_x, offset_y)
 
             # print(
             #     f"Frame {frame_num}: "

@@ -1,4 +1,12 @@
-# Automatic Colab deployment
+# Historical Windows Drive deployment workflow
+
+The instructions below describe the original separate Windows deployment folder.
+For the current review branch, use the clean-checkout build instructions in
+README.md and the recorded release commit. Automatic deployment is disabled in
+the committed configuration. Source packages are rebuilt from this committed
+checkout, rather than by silently importing another live working tree. A new
+candidate does not replace production until its separate validation and review
+requirements are satisfied.
 
 The permanent notebook is inside Martin's approved project hierarchy:
 **Meena Kasthuri / Soccer_Analysis_Meena_Kasthuri / SoccerProject**.

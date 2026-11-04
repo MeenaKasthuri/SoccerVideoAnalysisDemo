@@ -6,6 +6,7 @@ class CameraMotionEstimator:
         self.total_dx = 0.0
         self.total_dy = 0.0
         self.prev_gray = None
+        self.last_update_valid = False
 
     def update_camera(self, frame):
         """Return incremental image displacement since the previous call.
@@ -23,6 +24,7 @@ class CameraMotionEstimator:
             frame,
             cv2.COLOR_BGR2GRAY
         )
+        self.last_update_valid = False
 
         previous = self.prev_gray
         self.prev_gray = gray
@@ -79,5 +81,6 @@ class CameraMotionEstimator:
 
         self.total_dx += dx
         self.total_dy += dy
+        self.last_update_valid = True
 
         return dx, dy
