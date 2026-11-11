@@ -92,3 +92,7 @@ video/model hashes, commit, configuration, device, errors and elapsed time.
 The current backlog is maintained separately in the existing shared Excel
 workbook. Historical Markdown backlog material in this repository is not the
 current acceptance record. No new backlog data belongs in source releases.
+
+## November 2026 handover
+
+See the [technical handover](docs/handover_2026_11.md) for reproducibility, recorded validation, and remaining acceptance work.
