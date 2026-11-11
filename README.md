@@ -1,74 +1,98 @@
 # Soccer Video Analysis Platform
 
-## Project Development
+Piedra Alta Sistemas soccer video analytics, originally developed by Andrew
+Brandenburg and continued by Meena Kasthuri.
 
-**Original Developer:** Andrew Brandenburg  
-**Current Development:** Meena Kasthuri  
-**Organization:** Piedra Alta Sistemas
+The application uses YOLO detections and ByteTrack identities to export player,
+referee and ball observations, with team evidence, possession heuristics, event
+records and visualizations. These outputs require reference-based validation
+before they can support football-performance conclusions.
 
-This repository is a continuation of the Soccer Video Analysis Platform originally developed by Andrew Brandenburg. Current development focuses on performance benchmarking and optimization, structured data export, event analytics, documentation, and continued development of the inherited project backlog.
+## Current architecture
 
-# About This Project:
+- `trackers/`, `team_assigner/`, `player_ball_assigner/` and `analytics/` contain
+  detection, tracking, assignment and football observation/event logic.
+- `colab_support/` provides the Colab application, persistent tracking across
+  decoding chunks, baseline/improved comparisons, review gates and exports.
+- `Soccer_Analytics_Colab.ipynb` is the stable launcher. Runtime behavior lives in
+  Python modules, rather than in growing notebook cells.
+- `build_colab_zip.py`, `deploy_colab.py` and `drive_identity.py` package committed
+  source and guard the approved Drive destination. Automatic deployment is off in
+  the committed configuration.
+- `tests/` contains offline regression and integration checks. The desktop
+  Streamlit/database entry points remain available as inherited application paths.
 
-This sports analysis platform takes a short soccer video clip and uses Ultralytics YOLO and ByteTrack to detect objects like players, referees, and the ball. It provides analysis features like convex hulls (Polygons showing team shapes and formations), heatmaps, trajectories, and more analytics both on a 2D pitch view and an overlay on the original video. It also collects and exports JSON data and stores information in SQL Lite and SQL Server databases.
+## Reproduce the Colab source
 
-This platform was built to provide professional analysis from soccer match clips and answer questions that many coaches and soccer clubs often ask like formations, player histories, player trajectories, ball control, team zones, and more which can be used to provide analysis and answers to professional questions.
+The preserved historical release is `20261028T032449Z_8ee99bdd`. Its verified ZIP
+contains a working-tree snapshot, including unpublished source changes; checking
+out its old internal HEAD alone does not reproduce it. This branch imports that
+snapshot, the missing authoring tools and subsequent regression fixes.
+See [release provenance](docs/releases/README.md).
 
-## Recent Development
+The tested local Python version is 3.13.3. `requirements_colab.txt` pins
+`ultralytics==8.4.131` and `supervision==0.30.1` over a compatible Colab runtime.
+Colab supplies PyTorch, OpenCV and other binary dependencies. Capture their actual
+versions and CUDA/device information with every real run; these two pins alone
+are not a full environment lock. Do not upgrade Supervision without checking its
+ByteTrack API compatibility.
 
-Recent work includes:
+```powershell
+python -m pip install -r requirements_colab.txt
+python -B run_local_checks.py --checks-only
+```
 
-- Performance profiling of the soccer video analytics pipeline
-- Separate YOLO detection and tracking timing measurements
-- Resolution benchmarking at 640, 960, and 1280
-- Experimental true YOLO batch inference
-- Full-video CPU performance validation
-- Camera-motion processing optimization
-- CSV export for player, referee, and ball tracking data
-- Event data model supporting touch and possession-change events
-- JSON export of structured event data
-- Updated project backlog and benchmark documentation
+For Colab, open the stable launcher against the approved shared project folder.
+For a new source package, commit validated changes and run:
 
-Performance benchmark details are available in:
+```powershell
+python -B build_colab_zip.py .
+```
 
-`docs/benchmarks/`
+The builder requires a clean checkout, records the release commit and file
+hashes, and excludes input videos, backlog data and previous results. Deployment
+requires the separately configured existing Drive binding and cloud readback.
+The preserved production release is not automatically replaced by this branch.
 
-The maintained project backlog is available in:
+## Event and camera contracts
 
-`docs/backlog/PROJECT_BACKLOG.md`
+`EventModel.build_events` consumes the complete ordered sequence after chunks
+are assembled. A continuous divided-ball observation becomes one bounded episode
+with inclusive start/end frames, duration and boundary-censoring flags. Teammate
+owner transfers produce an ownership-proxy touch, while only known opposing
+teams produce `possession_change`. A proximity observation does not prove a pass,
+physical touch or genuine contest.
 
-## Getting Started
+`CameraMotionEstimator.update_camera` returns displacement since its previous
+call, or zero when an increment cannot be measured. It always advances the image
+reference after an accepted frame. Zero is an unavailable estimate, not proof of
+a stationary camera. Trajectory drawing now accumulates per-frame increments
+once, preserves state across batches and clears its trail after an unavailable
+increment. This is translation-stabilized image drawing. Rotation, zoom, parallax
+and real trajectory accuracy still require footage validation.
 
-### Prerequisites
+## Validation status
 
-- Python 3.14.0+
-- Ultralytics YOLO v11.0
-- Supervision 0.28.0+
+Keep three claims separate: software correctness, computer-vision accuracy, and
+football-analytics accuracy. Offline tests use synthetic detections/OCR where
+documented and do not establish real detector, tracker, OCR or event accuracy.
+Historical short Colab runs are execution evidence for their recorded release,
+not GPU validation of later code changes.
 
-### Installation
-1. **Clone the repository:**
-```bash
-   git clone https://github.com/MeenaKasthuri/SoccerVideoAnalysisDemo.git
-   ```
-2. **Navigate into the project folder:**
-   ```bash
-   cd SoccerVideoAnalysisDemo
-   ```
+The fixed 70-pixel ownership threshold remains a baseline heuristic. Pitch
+coordinates remain unreliable without per-video/camera-segment calibration and
+independent validation. Field filtering alone is not metric homography.
+Optional ownership experiments and offline event/spatial assessment tools are
+described in [validation contracts](docs/validation_contracts.md). Their defaults
+and explicit review gates prevent provisional experiments from becoming accepted
+accuracy claims.
+Baseline/improved comparisons must use identical labeled source frames and record
+video/model hashes, commit, configuration, device, errors and elapsed time.
 
-3. **Install all required packages:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-   *(Note: If you are using PyCharm, you can simply open the project folder and click the "Install requirements" popup bar).*
+The current backlog is maintained separately in the existing shared Excel
+workbook. Historical Markdown backlog material in this repository is not the
+current acceptance record. No new backlog data belongs in source releases.
 
-4. **Run the program**
+## November 2026 handover
 
-    *For Streamlit Usage:*
-    ```bash
-   streamlit run streamlit_app.py
-   ```
-   
-    *For Running the Main:*
-    ```bash
-   python main.py
-   ```
+See the [technical handover](docs/handover_2026_11.md) for reproducibility, recorded validation, and remaining acceptance work.

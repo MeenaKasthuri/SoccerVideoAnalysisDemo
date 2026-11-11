@@ -13,7 +13,11 @@ import inspect
 import traceback
 import time
 from itertools import combinations
-from utils import get_center_of_bbox, get_bbox_width
+from utils import (
+    get_center_of_bbox,
+    get_bbox_width,
+    draw_clamped_label
+)
 from camera_motion.camera_motion import CameraMotionEstimator
 from homography.homography import HomographyGenerator
 
@@ -589,35 +593,20 @@ class Tracker:
             thickness = 2,
             lineType = cv2.LINE_4
         )
-        # Creates rectangles on the ellipses to display numbers to tell players apart
-        #Creates the rectangles
-        rectangle_width = 40
-        rectangle_height = 20
-        x1_rect = x_center - rectangle_width // 2
-        x2_rect = x_center + rectangle_width // 2
-        y1_rect = (y2 - rectangle_height // 2) + 15
-        y2_rect = (y2 + rectangle_height // 2) + 15
-
         if track_id is not None and draw_id:
-            cv2.rectangle(frame,
-                          (int(x1_rect), int(y1_rect)),
-                          (int(x2_rect), int(y2_rect)),
-                          color,
-                          cv2.FILLED)
-
-            #Creates the numbers inside the rectangles
-            x1_text = x1_rect + 12
-            if track_id > 90:
-                x1_text -= 10
-
-            cv2.putText(
-                frame,
-                f"{track_id}",
-                (int(x1_text), int(y1_rect + 15)),
+            (text_width, _), _ = cv2.getTextSize(
+                str(track_id),
                 cv2.FONT_HERSHEY_SIMPLEX,
                 0.6,
-                (0,0,0), #black
                 2
+            )
+            draw_clamped_label(
+                frame,
+                track_id,
+                (x_center - text_width // 2, y2 + 15),
+                color,
+                font_scale=0.6,
+                thickness=2
             )
 
         return frame
@@ -749,6 +738,7 @@ class Tracker:
         x = int((bbox[0] + bbox[2]) / 2)
         y = int(bbox[3])
 
+        # Translation-stabilized image coordinates, not metric pitch positions.
         world_x = x - offset_x
         world_y = y - offset_y
 
@@ -826,23 +816,23 @@ class Tracker:
         for frame_num, frame in enumerate(video_frames):
             frame = frame.copy()
 
-            # Optimize camera-motion estimation by recalculating every 5 frames
-            # and reusing the previous offset between calculations.
-            if frame_num % 5 == 0:
-                camera_start = time.perf_counter()
-
-                offset_x, offset_y = self.motion_estimator.update_camera(frame)
-
-                camera_motion_total += time.perf_counter() - camera_start
-
-                self.last_camera_offset = (offset_x, offset_y)
-
+            # Each measured increment is accumulated exactly once. Estimating
+            # each frame avoids treating a five-frame increment as a position,
+            # and makes the result independent of annotation batch boundaries.
+            camera_start = time.perf_counter()
+            dx, dy = self.motion_estimator.update_camera(frame)
+            camera_motion_total += time.perf_counter() - camera_start
+            valid = (getattr(self.motion_estimator, "last_update_valid", True)
+                     and np.isfinite([dx, dy]).all())
+            if valid:
+                previous_x, previous_y = getattr(self, "annotation_camera_offset", (0.0, 0.0))
+                offset_x, offset_y = previous_x + dx, previous_y + dy
             else:
-                offset_x, offset_y = getattr(
-                    self,
-                    "last_camera_offset",
-                    (0.0, 0.0)
-                )
+                # An unmeasured interval cannot support a compensated trail.
+                # Start a new image-coordinate segment rather than bridge it.
+                self.track_history.clear()
+                offset_x, offset_y = 0.0, 0.0
+            self.annotation_camera_offset = (offset_x, offset_y)
 
             # print(
             #     f"Frame {frame_num}: "
@@ -987,6 +977,5 @@ class Tracker:
         print(f"[DETAIL] Camera motion estimation: {camera_motion_total:.2f} seconds")
 
         return output_video_frames
-
 
 

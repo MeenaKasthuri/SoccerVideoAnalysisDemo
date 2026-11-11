@@ -9,8 +9,14 @@ class TeamShapeAnalyzer:
             team_id = player.get("team")
             pitch_x = player.get("pitch_x")
             pitch_y = player.get("pitch_y")
+            coordinate_valid = player.get("coordinate_valid", True)
 
-            if team_id is None or pitch_x is None or pitch_y is None:
+            if (
+                team_id is None
+                or pitch_x is None
+                or pitch_y is None
+                or not coordinate_valid
+            ):
                 continue
 
             teams.setdefault(team_id, []).append(

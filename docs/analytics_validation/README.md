@@ -1,5 +1,11 @@
 # Analytics Validation — 100-Frame Segment
 
+> Historical evidence from an earlier implementation. These observations are not
+> validation of the November 3 corrected model or the five-video comparison.
+> The current model merges contiguous divided-ball observations into episodes
+> and distinguishes teammate transfers from opposing-team possession changes.
+> See the repository README for current contracts and remaining accuracy limits.
+
 ## Objective
 
 Manually review a short 100-frame segment and compare system-generated

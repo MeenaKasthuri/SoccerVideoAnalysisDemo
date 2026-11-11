@@ -1,0 +1,22 @@
+# Installed ON TOP of Google Colab's preinstalled packages.
+#
+# Pinned to the exact versions the project runs with locally
+# (D:\SoccerProject\SoccerVideoAnalysisDemo\.venv, Python 3.13.3).
+# Both are pure-Python wheels (ultralytics: Requires-Python >=3.8,
+# supervision: >=3.10), so they install on any current Colab Python.
+#
+# supervision MUST stay below 0.31: trackers/tracker.py uses sv.ByteTrack and
+# its tracked_tracks / lost_tracks / removed_tracks attributes. ByteTrack is
+# deprecated since 0.28 and is removed in 0.31.0.
+ultralytics==8.4.131
+supervision==0.30.1
+
+# Deliberately NOT listed (use Colab's preinstalled builds):
+#   torch, torchvision  - Colab's wheels match its CUDA driver; reinstalling
+#                         from PyPI can silently give a CPU-only or mismatched build
+#   opencv-python       - preinstalled; ultralytics needs >=4.7 (checked in notebook)
+#   numpy, pandas, scikit-learn, scipy, matplotlib, psutil
+#
+# Not needed for the Colab pipeline run (stubbed in colab_helpers.py):
+#   streamlit  - imported by main.py but never used there
+#   pyodbc     - SQL Server only; needs Windows ODBC Driver 17 + localhost server

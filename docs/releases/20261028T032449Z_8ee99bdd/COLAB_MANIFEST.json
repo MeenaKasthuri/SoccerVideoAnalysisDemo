@@ -1,0 +1,297 @@
+{
+  "built_at": "2026-10-27T23:24:44",
+  "source_project": "D:\\SoccerProject\\SoccerVideoAnalysisDemo",
+  "git_head": "efbc3623bfe6de3e448e0d8a39929f43e2e7a6eb",
+  "git_head_subject": "Add temporal stabilization for possession events",
+  "uncommitted_modified_files": [
+    "analytics/event_model.py",
+    "analytics/team_shape_analyzer.py",
+    "homography/homography.py",
+    "main.py",
+    "trackers/tracker.py",
+    "utils/__init__.py",
+    "visualization/overlay_visualizer.py"
+  ],
+  "untracked_python_files_included": [
+    "utils/label_utils.py"
+  ],
+  "note": "Working-tree snapshot: includes uncommitted and untracked changes. Colab-only improvements are isolated in colab_support/; original source is unchanged.",
+  "files": {
+    ".gitignore": {
+      "bytes": 588,
+      "sha256": "fee46cb6808a950d877b96024c29a0169fb820453c83608f8b4a0f23888ab08e"
+    },
+    "COLAB_SETUP.md": {
+      "bytes": 6905,
+      "sha256": "661f009f4bb66c4f6f15fece399eea2f6fd012c41517add378c2c72534a2e35d"
+    },
+    "README.md": {
+      "bytes": 2790,
+      "sha256": "18a231114e566292bcace49a05a344e4f3c6b1d2cbb76ffa2b0f0ea0489c7e15"
+    },
+    "analytics/__init__.py": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "analytics/distance_analyzer.py": {
+      "bytes": 771,
+      "sha256": "af6a8e5b39ed3644171b3f714293ce67e6c63419dad45fab8cc08fbba399e63e"
+    },
+    "analytics/event_model.py": {
+      "bytes": 6403,
+      "sha256": "e723c0c1e221c2a5e595259555df8e3112cf802926d31dfa677c37cdabf3cf4e"
+    },
+    "analytics/heatmaps.py": {
+      "bytes": 4073,
+      "sha256": "ba72751a04c7c3705d02a684f2c1a32c0eff7d8314ddae494b8616c4cb69c370"
+    },
+    "analytics/history_builder.py": {
+      "bytes": 1197,
+      "sha256": "a573cb54877b61eea8e85f03f134c125b9aa1fdb12e83147422eb35bc97d4a18"
+    },
+    "analytics/player_histories.py": {
+      "bytes": 1271,
+      "sha256": "584f5b1c73f0c0bf653c079d8934e5fd50c31c3101c954a8bd6c00e1788ab99b"
+    },
+    "analytics/player_statistics_builder.py": {
+      "bytes": 1403,
+      "sha256": "df2c25ebdbcd1a22f4f9bfb646802c6691776f2907e3be7a0f2f4fe8807b525f"
+    },
+    "analytics/positioning.py": {
+      "bytes": 934,
+      "sha256": "88b08a98a68f2da935e559c7dc794ae1b30cba155822eaff13d8ca6df6595ccc"
+    },
+    "analytics/possession_analyzer.py": {
+      "bytes": 2500,
+      "sha256": "fa29d22ee5cdd03e0e1f423f09b9cca2499e2f91aac03f88038ea3a3a114a163"
+    },
+    "analytics/team_shape_analyzer.py": {
+      "bytes": 2257,
+      "sha256": "274dea6bcff67ae4a2808077c9bc2138013a991b2e0150220962c74ac8fba9af"
+    },
+    "analytics/team_zone_analyzer.py": {
+      "bytes": 4790,
+      "sha256": "9466afff481f47edb178108a7dae21426a62afe824c5199196e00ff588b5d109"
+    },
+    "analytics/touch_analyzer.py": {
+      "bytes": 1055,
+      "sha256": "b74a4b92f5ca9975ebdd03d61769d7ac705aaf0c78a62ac29835e3b867cfd34c"
+    },
+    "camera_motion/camera_motion.py": {
+      "bytes": 1998,
+      "sha256": "39dad2991e999a8b9af5bcccddf9b8ce281182047a9ca111ecd8a5ea65d89c7e"
+    },
+    "colab_support/chunked_pipeline.py": {
+      "bytes": 23351,
+      "sha256": "cba886f0bdca87e0582b52703dcc0602dc067f370355e9099440538c6ac953da"
+    },
+    "colab_support/colab_helpers.py": {
+      "bytes": 23196,
+      "sha256": "fdf8e4bcbb12a6d7b310643eaa21a2e4da3b8d5eaa122cb3b25fb96baa260f0a"
+    },
+    "colab_support/colab_session.py": {
+      "bytes": 22062,
+      "sha256": "06c60c05dc47d521917539a38ed891400c63daefeb2ee9e496053386aa69599d"
+    },
+    "colab_support/comparison_suite.py": {
+      "bytes": 5482,
+      "sha256": "84cd4585c14071e55a50e87652b5f56ee9341a021ef9b65e24e497d3e0fc4cbf"
+    },
+    "colab_support/drawing_colors.py": {
+      "bytes": 2154,
+      "sha256": "53760a2a5446c407aefe7167d4d78591aea3772c436b13d3246e6efa54ed8647"
+    },
+    "colab_support/field_filter.py": {
+      "bytes": 11740,
+      "sha256": "ab428052c20fa599cd19bdb7d768caa9541001676155597b94fe1c2b4c351dd7"
+    },
+    "colab_support/identity_evidence.py": {
+      "bytes": 18466,
+      "sha256": "86ea2b5fc8e695e3f5d687342ae4fa9ebf4a5ee10205218f4dc455d840bed016"
+    },
+    "colab_support/pipeline_tracker.py": {
+      "bytes": 10968,
+      "sha256": "9dc3ad6a572f9e2d1e10255844d1e24cbddcfa26e10a08a187df430ba687fad6"
+    },
+    "colab_support/short_validation.py": {
+      "bytes": 20745,
+      "sha256": "8b811ebd1eb37befd58838fa6b85752e2d61530bbbcea25b0c40b1a06c764585"
+    },
+    "colab_support/tracking_exports.py": {
+      "bytes": 2561,
+      "sha256": "66da0b98b508c45c727a9c042001ea197067b1410babf5b9bafbaa5800090866"
+    },
+    "database/__init__.py": {
+      "bytes": 43,
+      "sha256": "c39161891b4083167512d5467ab2e05ea0a7b865501848608a67a99a1307f78f"
+    },
+    "database/sql_lite.py": {
+      "bytes": 8913,
+      "sha256": "5af173178cc6bbaffeaef0f83926320fd26a8fd2bb779e802b231ed0b51e312a"
+    },
+    "database/sql_server.py": {
+      "bytes": 5541,
+      "sha256": "c0294df1622c95d8166985c218e2751ac6f9ee2b896e6ed8220c2ea6208299a7"
+    },
+    "docs/analytics_validation/README.md": {
+      "bytes": 1968,
+      "sha256": "050d669227c28659753116eb1adb3139c315f9065072e3ada628baf37b3fdbc1"
+    },
+    "docs/analytics_validation/TEAM_SHAPE_README.md": {
+      "bytes": 2068,
+      "sha256": "cefb29fab8bb989ad50ad29e1323deb2141afd40c624cf64af8eb4e0dcdcbd74"
+    },
+    "docs/analytics_validation/calculate_event_metrics.py": {
+      "bytes": 2301,
+      "sha256": "d6bd0232e10ea26794e1d3a1d408e966fedb99496d405ebd25168f0e923533df"
+    },
+    "docs/analytics_validation/export_team_shape_metrics.py": {
+      "bytes": 2590,
+      "sha256": "53719a7192bde6203e0b18690816d9be95bc1619473a0808b316111662dbc007"
+    },
+    "docs/analytics_validation/plot_team_shape.py": {
+      "bytes": 1103,
+      "sha256": "9b0009c627026f29a47dbeecca9fa90f34ba2d36a61a02cb1e44b4d9e62de328"
+    },
+    "exporters/__init__.py": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "exporters/csv_exporter.py": {
+      "bytes": 3453,
+      "sha256": "021c7d6e6ab7688c3d63d100559a996c471ec26e1bc9538edfc48e792eff8822"
+    },
+    "exporters/event_exporter.py": {
+      "bytes": 493,
+      "sha256": "c0150759c51841f3260b5a6b8e6e033c9bd620161c527311603d53c23e2e98eb"
+    },
+    "exporters/json_exporter.py": {
+      "bytes": 2156,
+      "sha256": "2d4c60652e09a32b34f20e2b21f92f67657a0207039d143f21fc7e9fcee02922"
+    },
+    "homography/__init__.py": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "homography/homography.py": {
+      "bytes": 3025,
+      "sha256": "c47500272302071fe9f42050d3082163f445244d2920f061e1e7818a9e8e37ff"
+    },
+    "main.py": {
+      "bytes": 25386,
+      "sha256": "1edf686d85de6b3e1917e972e46653056e987c3f9bd91c03cc0b4881f8ed45de"
+    },
+    "models/best (2).pt": {
+      "bytes": 40584620,
+      "sha256": "58e84d483751f8f37db0f05f0655f5799a68b49e0805c7fe9d8dc136a6b062cc"
+    },
+    "player_ball_assigner/__init__.py": {
+      "bytes": 52,
+      "sha256": "6087f3f3d4dc6a7dff921ff573f0e8775eb3d050c2c292048d4bc0b4203f3a7c"
+    },
+    "player_ball_assigner/player_ball_assigner.py": {
+      "bytes": 1591,
+      "sha256": "5945654ed5f3b9b4c9c7cd015969bd07ea782104108a40408abb1dcd126ad3a0"
+    },
+    "requirements_colab.txt": {
+      "bytes": 1156,
+      "sha256": "8b9ccb838f6f78b9065858950f984359b21fb611306c6274dc339a3468029b0b"
+    },
+    "streamlit_app.py": {
+      "bytes": 6699,
+      "sha256": "1344d0a52508d671f904055c3109b57632a4fbf5616815e957cea194f1d54c74"
+    },
+    "team_assigner/__init__.py": {
+      "bytes": 39,
+      "sha256": "48a6686051a2d57ce87915c9f26ccad0eeb9f6a1b4ef829c6fcaa7768b6f32ac"
+    },
+    "team_assigner/team_assigner.py": {
+      "bytes": 3839,
+      "sha256": "89a5f38a6821ab719accbce008b5cc0c7522fe2f633877b2596b71ad5a68df86"
+    },
+    "tests/annotation_replay.py": {
+      "bytes": 12791,
+      "sha256": "81defe5fd2b2b31ceb23ec75e95109110149de6251273d72fd40dac6f811b612"
+    },
+    "tests/test_colab_session.py": {
+      "bytes": 12853,
+      "sha256": "0cc0db57c01bfa4c4297ff69b29cb8b168f0b5643588626e3e46c0da648504d8"
+    },
+    "tests/test_comparison_suite.py": {
+      "bytes": 3964,
+      "sha256": "d224bbe74e0e492028f0397dcbd3f82c5abc2e0d7dd0af06ef6f2f7d68d5ed2d"
+    },
+    "tests/test_deploy_colab.py": {
+      "bytes": 15595,
+      "sha256": "26a57f26a4b32b1536d8075b37a55d6d0de14b096f3cdc6d9ab36078573ba8a9"
+    },
+    "tests/test_drawing_colors.py": {
+      "bytes": 10797,
+      "sha256": "fe28076ac8f4ca8fd9ecb6ca5b4f447f49a9defde9ecb511b2f6a08b46281835"
+    },
+    "tests/test_drive_identity.py": {
+      "bytes": 7468,
+      "sha256": "55e3287667625b93b074f8ec7148365b8906b3ac86ba583a27ff5e024fbdbd86"
+    },
+    "tests/test_field_filter.py": {
+      "bytes": 4419,
+      "sha256": "44b4c53b007d673cb2911cdd1d64b7d7ff8f39cd6fa7b25ef489a526921bfca1"
+    },
+    "tests/test_identity_evidence.py": {
+      "bytes": 15591,
+      "sha256": "6f6ccf62e755a8e4a5617c59ff2441ee47b20952789b53364af750ab43c5cb6a"
+    },
+    "tests/test_pipeline_integration.py": {
+      "bytes": 13784,
+      "sha256": "4880720dd1d54feec2368b38553ed5c24186b673495530e81195a0e47f1c3c15"
+    },
+    "tests/test_short_validation.py": {
+      "bytes": 8376,
+      "sha256": "2f442dd64088d627b70f07eda85d514012b58f266a9bf195e5eb07d340917ab0"
+    },
+    "trackers/__init__.py": {
+      "bytes": 38,
+      "sha256": "250dfc1929faccb170c5a1afd56d65e72456856d77229666ba9d686d796797c0"
+    },
+    "trackers/tracker.py": {
+      "bytes": 31742,
+      "sha256": "9094dfc3c33fd3e5d7d14b86decc9e96a5ef1ad4eb54ebe237331b5dea16a2b6"
+    },
+    "utils/__init__.py": {
+      "bytes": 172,
+      "sha256": "58bfcf182ae9eb37ed36c930b20a471b488cb48149b5729f3bbd9b5c66daad0d"
+    },
+    "utils/bbox_utils.py": {
+      "bytes": 462,
+      "sha256": "3fb9f32a66472512f20f8a8baff100f133425b4dc94a183abd107b8cdcc38f05"
+    },
+    "utils/label_utils.py": {
+      "bytes": 1391,
+      "sha256": "e0c505841c65a24153f7f66c80345d6790f081ebfd2a17a3f2761a3aef0c371f"
+    },
+    "utils/tracking_data.py": {
+      "bytes": 117,
+      "sha256": "0d3ba61e64980d4c8c20bcd9e2a786dcd4fccf5895b3e61f145dec3054739615"
+    },
+    "utils/video_utils.py": {
+      "bytes": 1060,
+      "sha256": "3991bf3df36b9e16b4bac1e45119a11f4e0e35619bcfd898207c82c6cf926412"
+    },
+    "visualization/overlay_visualizer.py": {
+      "bytes": 3942,
+      "sha256": "46f925767c4c8f9fed9a27ec52033b2b3ae41136b78b087948be0e781fb0436e"
+    },
+    "visualization/pitch_visualizer.py": {
+      "bytes": 8287,
+      "sha256": "e0e3906d27548376a3eb328fcb04cd5927da12bf70baa60c7ebc47bf964782a2"
+    },
+    "visualization/tactical_visualizer.py": {
+      "bytes": 5716,
+      "sha256": "d8420ea0a46d06c8fd2c1b2226f44c4b3a776d251fe6036d74f21d21c5e80e58"
+    },
+    "yolo_inference.py": {
+      "bytes": 459,
+      "sha256": "4c1c493e03e13bbceaeb8874a81648efeaf835d99a9eb7e9c52b569d64e1c5c4"
+    }
+  }
+}
